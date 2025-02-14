@@ -1,0 +1,38 @@
+/* Genel Stil */
+body {
+    padding-top: 56px; /* Navbar yüksekliği kadar padding */
+    font-family: 'Arial', sans-serif;
+}
+
+/* Navbar Stili */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+
+/* Icon Stili */
+.icon-large {
+    font-size: 2rem;
+    margin-right: 10px;
+}
+
+/* Başlık Stili */
+.display-4 {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+/* Resimlerin Stili */
+.img-fluid {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,.1);
+}
+
+/* Mobil Görünüm İçin Ayarlar */
+@media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column;
+    }
+    .col-md-6 {
+        margin-bottom: 20px;
+    }
+}
