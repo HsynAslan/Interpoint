@@ -1,7 +1,15 @@
 /* Genel Stil */
-body {
-    padding-top: 56px; /* Navbar yüksekliği kadar padding */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Scroll'u engelle */
     font-family: 'Arial', sans-serif;
+}
+
+/* Arka Plan Geçişli Renk */
+body {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
 }
 
 /* Navbar Stili */
@@ -9,22 +17,71 @@ body {
     box-shadow: 0 2px 4px rgba(0,0,0,.1);
 }
 
+/* Navbar Açılma ve Kapanma Animasyonu */
+.collapse.navbar-collapse {
+    transition: transform 0.5s ease, opacity 0.5s ease; /* Yavaş açılma efekti */
+    transform-origin: top; /* Yukarıdan aşağıya açılma */
+    transform: scaleY(0); /* Başlangıçta gizli */
+    opacity: 0; /* Başlangıçta görünmez */
+    display: block !important; /* Bootstrap'in varsayılan davranışını geçersiz kıl */
+    position: absolute; /* Navbar'ın altındaki boşluğu kaldır */
+    top: 100%; /* Navbar'ın hemen altında başla */
+    left: 0;
+    right: 0;
+    background-color: white; /* Navbar arka plan rengi */
+    z-index: 1000; /* Diğer içeriklerin üzerinde olmasını sağla */
+    height: auto; /* İçeriğe göre yükseklik ayarla */
+    overflow: hidden; /* İçerik taşmasını engelle */
+}
+
+.collapse.navbar-collapse.show {
+    transform: scaleY(1); /* Açıldığında tam boyutta göster */
+    opacity: 1; /* Açıldığında görünür */
+    height: auto; /* İçeriğe göre yükseklik ayarla */
+}
+
+/* Geniş Ekranlarda Navbar'ın Normal Davranışı */
+@media (min-width: 992px) {
+    .collapse.navbar-collapse {
+        position: static; /* Varsayılan pozisyon */
+        transform: none; /* Transform'u kaldır */
+        opacity: 1; /* Her zaman görünür */
+        background-color: transparent; /* Arka plan rengini kaldır */
+    }
+}
+
+/* Ana İçerik */
+.main-content {
+    height: 100vh; /* Sayfanın tamamını kapla */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white; /* Yazı rengi beyaz */
+}
+
 /* Icon Stili */
 .icon-large {
     font-size: 2rem;
     margin-right: 10px;
+    color: white; /* Icon rengi beyaz */
 }
 
 /* Başlık Stili */
 .display-4 {
     font-weight: bold;
     margin-bottom: 0.5rem;
+    color: white; /* Başlık rengi beyaz */
 }
 
 /* Resimlerin Stili */
 .img-fluid {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,.1);
+}
+
+/* Resimlerin Ortalanması */
+.col-md-6.d-flex.align-items-center.justify-content-center {
+    padding-top: 20px; /* Resimleri biraz daha aşağı kaydır */
 }
 
 /* Mobil Görünüm İçin Ayarlar */
