@@ -17,7 +17,7 @@ body, html {
     width: 100%;
     height: 100vh; /* Tam ekran kaplasın */
     min-height: 100vh;
-    background-image: url(./images/anasayfa-genel2.jpg);
+    background-image: url(./images/anasayfa-genel3.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -31,6 +31,7 @@ body, html {
     }
 
     .main-content {
+        padding-top: 10vh;
         background-size: auto; /* Resim orijinal boyutunu korusun */
         background-repeat: repeat; /* Küçük ekranlarda tekrar etsin */
         background-position: top left;
