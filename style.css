@@ -16,6 +16,7 @@ body, html {
     padding-top: 2vh;
     width: 100%;
     height: 100vh; /* Tam ekran kaplasın */
+    min-height: 100vh;
     background-image: url(./images/anasayfa-genel2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -25,13 +26,17 @@ body, html {
 
 /* 📌 Mobil cihazlar için (768px ve altı) */
 @media (max-width: 768px) {
-    .main-content {
-        padding-top: 10vh;
-        background-size: auto;  /* Resmin orijinal boyutunu koru */
-        background-repeat: repeat;  /* Küçük ekranlarda tekrar etsin */
-        background-position: top left; /* Üstten hizalansın */
-        background-attachment: scroll; /* Mobilde arka plan sabit olmasın */
+    body, html {
+        overflow: auto; /* Scroll aktif olsun */
     }
+
+    .main-content {
+        background-size: auto; /* Resim orijinal boyutunu korusun */
+        background-repeat: repeat; /* Küçük ekranlarda tekrar etsin */
+        background-position: top left;
+        background-attachment: scroll; /* Arka plan mobilde sayfa ile birlikte hareket etsin */
+    }
+   
 }
 
 /* ======================== */
@@ -118,6 +123,14 @@ body, html {
 }
 
 @media (min-width: 769px) {
+    body, html {
+        overflow: hidden; /* Scroll'u kaldır */
+    }
+
+    .main-content {
+        height: 100vh; /* Sayfanın tamamını kaplasın */
+        background-attachment: fixed; /* Masaüstünde sabit arka plan */
+    }
     .navbar .collapse {
         display: flex !important;
         justify-content: flex-end;
@@ -140,8 +153,9 @@ body, html {
 /* 🔹 Hakkımızda Bölümü */
 /* ======================== */
 .hakkimizda {
-    padding: 20px;
-    background-color: white;
+    padding: 60px;
+    background-color: white !important;
+    background: none;
 }
 
 .sol-taraf {
