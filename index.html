@@ -92,7 +92,7 @@
             // Sayfa yüklenince loading'i gizle
             setTimeout(() => {
                 loadingScreen.classList.remove("show");
-            }, 800); // 0.8 saniye sonra kaybolsun
+            }, 500); // 0.8 saniye sonra kaybolsun
         
             // Linklere tıklanınca yükleme animasyonunu göster
             document.querySelectorAll("a").forEach(link => {
@@ -110,7 +110,7 @@
                     // 1.2 saniye bekletip yönlendir
                     setTimeout(() => {
                         window.location.assign(href);
-                    }, 1200);
+                    }, 800);
                 });
             });
         });
