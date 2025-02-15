@@ -3,18 +3,22 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow: hidden; /* Scroll'u engelle */
     font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa; /* Beyazımsı arka plan rengi */
 }
-
+.active{
+    color: white !important;
+}
 /* Arka Plan Geçişli Renk */
 body {
     background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white; /* Yazı rengi beyaz */
 }
 
 /* Navbar Stili */
 .navbar {
     box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    background-color: #1a6bbd !important;
 }
 
 /* Navbar Açılma ve Kapanma Animasyonu */
@@ -39,7 +43,6 @@ body {
     opacity: 1; /* Açıldığında görünür */
     height: auto; /* İçeriğe göre yükseklik ayarla */
 }
-
 /* Geniş Ekranlarda Navbar'ın Normal Davranışı */
 @media (min-width: 992px) {
     .collapse.navbar-collapse {
@@ -52,44 +55,70 @@ body {
 
 /* Ana İçerik */
 .main-content {
+    padding-top: 80px; /* Navbar yüksekliği kadar padding */
     height: 100vh; /* Sayfanın tamamını kapla */
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white; /* Yazı rengi beyaz */
 }
 
-/* Icon Stili */
-.icon-large {
-    font-size: 2rem;
-    margin-right: 10px;
-    color: white; /* Icon rengi beyaz */
+/* Hakkımızda İçeriği */
+.hakkimizda {
+    padding: 20px;
+    background-color: aliceblue;
 }
 
-/* Başlık Stili */
-.display-4 {
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    color: white; /* Başlık rengi beyaz */
+/* Sol Taraf */
+.sol-taraf {
+    text-align: center;
+    padding: 20px;
 }
 
-/* Resimlerin Stili */
-.img-fluid {
+.sol-taraf img {
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,.1);
+    margin-bottom: 20px;
 }
 
-/* Resimlerin Ortalanması */
-.col-md-6.d-flex.align-items-center.justify-content-center {
-    padding-top: 20px; /* Resimleri biraz daha aşağı kaydır */
+.sirket-adi {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333; /* Şirket adı rengi */
 }
 
+/* Sağ Taraf */
+.sag-taraf {
+    padding: 20px;
+}
+
+.baslik {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333; /* Başlık rengi */
+    margin-bottom: 20px;
+}
+
+.metin {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #555; /* Metin rengi */
+    margin-bottom: 20px;
+}
 /* Mobil Görünüm İçin Ayarlar */
 @media (max-width: 768px) {
     .navbar-nav {
         flex-direction: column;
     }
-    .col-md-6 {
-        margin-bottom: 20px;
+    .sol-taraf, .sag-taraf {
+        width: 100%;
+        padding: 10px;
+    }
+    .sirket-adi {
+        font-size: 1.2rem;
+    }
+    .baslik {
+        font-size: 1.5rem;
+    }
+    .metin {
+        font-size: 0.9rem;
     }
 }
