@@ -1,86 +1,124 @@
-/* Genel Stil */
+/* ======================== */
+/* 🔹 Genel Stil */
+/* ======================== */
 body, html {
     margin: 0;
     padding: 0;
+    width: 100%;
     height: 100%;
     font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa; /* Beyazımsı arka plan rengi */
-}
-.active{
-    color: white !important;
-}
-/* Arka Plan Geçişli Renk */
-body {
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    color: white; /* Yazı rengi beyaz */
+    background-color: #f8f9fa;
+    scroll-behavior: smooth;
 }
 
-/* Navbar Stili */
+/* Ana İçerik */
+.main-content {
+    padding-top: 80px !important; /* Navbar yüksekliği kadar padding */
+    padding-bottom: 40px;
+}
+
+/* ======================== */
+/* 🔹 Navbar Stili */
+/* ======================== */
 .navbar {
     box-shadow: 0 2px 4px rgba(0,0,0,.1);
     background-color: #1a6bbd !important;
 }
 
-/* Navbar Açılma ve Kapanma Animasyonu */
+.navbar .nav-link {
+    color: white !important;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar .nav-link:hover {
+    color: #ffdd57 !important;
+}
+
+.active {
+    font-weight: bold;
+}
+
+/* Navbar Açılma Animasyonu */
 .collapse.navbar-collapse {
-    transition: transform 0.5s ease, opacity 0.5s ease; /* Yavaş açılma efekti */
-    transform-origin: top; /* Yukarıdan aşağıya açılma */
-    transform: scaleY(0); /* Başlangıçta gizli */
-    opacity: 0; /* Başlangıçta görünmez */
-    display: block !important; /* Bootstrap'in varsayılan davranışını geçersiz kıl */
-    position: absolute; /* Navbar'ın altındaki boşluğu kaldır */
-    top: 100%; /* Navbar'ın hemen altında başla */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    transform-origin: top;
+    transform: scaleY(0);
+    opacity: 0;
+    display: block !important;
+    position: absolute;
+    top: 100%;
     left: 0;
     right: 0;
-    background-color: white; /* Navbar arka plan rengi */
-    z-index: 1000; /* Diğer içeriklerin üzerinde olmasını sağla */
-    height: auto; /* İçeriğe göre yükseklik ayarla */
-    overflow: hidden; /* İçerik taşmasını engelle */
+    background-color: white;
+    z-index: 1000;
+    height: auto;
+    overflow: hidden;
 }
 
 .collapse.navbar-collapse.show {
-    transform: scaleY(1); /* Açıldığında tam boyutta göster */
-    opacity: 1; /* Açıldığında görünür */
-    height: auto; /* İçeriğe göre yükseklik ayarla */
+    transform: scaleY(1);
+    opacity: 1;
+    height: auto;
 }
-/* Geniş Ekranlarda Navbar'ın Normal Davranışı */
-@media (min-width: 992px) {
+
+/* Navbar için Mobil ve Masaüstü */
+@media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column;
+        background-color: #1a6bbd;
+        padding: 10px;
+    }
+
+    .navbar-nav .nav-item {
+        margin: 10px 0;
+    }
+
+    .navbar-toggler {
+        display: block !important;
+    }
+
     .collapse.navbar-collapse {
-        position: static; /* Varsayılan pozisyon */
-        transform: none; /* Transform'u kaldır */
-        opacity: 1; /* Her zaman görünür */
-        background-color: transparent; /* Arka plan rengini kaldır */
+        display: none;
+    }
+
+    .navbar-toggler:not(.collapsed) ~ .collapse {
+        display: block !important;
     }
 }
 
-/* Ana İçerik */
-.main-content {
-    padding-top: 80px; /* Navbar yüksekliği kadar padding */
-    height: 100vh; /* Sayfanın tamamını kapla */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+@media (min-width: 769px) {
+    .navbar .collapse {
+        display: flex !important;
+        justify-content: flex-end;
+        position: static;
+        transform: none;
+        opacity: 1;
+        background-color: transparent;
+    }
+
+    .navbar .navbar-toggler {
+        display: none !important;
+    }
+
+    .navbar-nav {
+        flex-direction: row !important;
+    }
 }
 
-/* Hakkımızda İçeriği */
+/* ======================== */
+/* 🔹 Hakkımızda Bölümü */
+/* ======================== */
 .hakkimizda {
     padding: 20px;
     background-color: white;
-}
-.logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative; /* Yazıyı SVG'nin üstüne konumlandırabilmek için */
 }
 
 .sol-taraf {
     padding-top: 20px;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: flex-start;
     align-items: center;
+    text-align: center;
 }
 
 .sol-taraf img {
@@ -88,14 +126,13 @@ body {
     margin-bottom: 20px;
 }
 
-
 .sirket-adi {
     margin-top: 5vh;
     font-size: 2.5rem;
     font-weight: bold;
-    transform: translate(25%);
     color: #25567d;
 }
+
 /* Sağ Taraf */
 .sag-taraf {
     padding: 20px;
@@ -103,33 +140,113 @@ body {
 
 .baslik {
     font-size: 3rem;
-    font-weight:800;
-    color: #25567d; /* Başlık rengi */
+    font-weight: 800;
+    color: #25567d;
     margin-bottom: 20px;
 }
 
 .metin {
     font-size: 1rem;
     line-height: 1.8;
-    color: #555; /* Metin rengi */
+    color: #555;
     margin-bottom: 20px;
 }
-/* Mobil Görünüm İçin Ayarlar */
+
+/* ======================== */
+/* 🔹 Kart Tasarımı */
+/* ======================== */
+.card {
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* ======================== */
+/* 🔹 Buton Stilleri */
+/* ======================== */
+.btn-custom {
+    background-color: #1a6bbd;
+    color: white;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    text-align: center;
+    display: inline-block;
+}
+
+.btn-custom:hover {
+    background-color: #155a99;
+}
+
+/* ======================== */
+/* 🔹 Footer Stili */
+/* ======================== */
+.footer {
+    background-color: #1a6bbd;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* ======================== */
+/* 🔹 Responsive Düzenlemeler */
+/* ======================== */
 @media (max-width: 768px) {
-    .navbar-nav {
-        flex-direction: column;
-    }
     .sol-taraf, .sag-taraf {
         width: 100%;
         padding: 10px;
     }
+
     .sirket-adi {
-        font-size: 1.2rem;
-    }
-    .baslik {
         font-size: 1.5rem;
+        margin-top: 2vh;
     }
+
+    .baslik {
+        font-size: 2rem;
+    }
+
     .metin {
         font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    .collapse.navbar-collapse {
+        position: relative;
+        transform: none !important;
+        opacity: 1 !important;
+        height: auto !important;
+    }
+
+    .navbar-nav {
+        flex-direction: row !important;
+        justify-content: flex-end;
+    }
+
+    .main-content {
+        padding-top: 100px;
+    }
+
+    .sol-taraf, .sag-taraf {
+        text-align: center;
+        padding: 15px;
+    }
+
+    .sol-taraf img {
+        max-width: 80%;
+        height: auto;
     }
 }
