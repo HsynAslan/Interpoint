@@ -9,12 +9,29 @@ body, html {
     font-family: 'Arial', sans-serif;
     background-color: #f8f9fa;
     scroll-behavior: smooth;
+    overflow: hidden; /* Sayfanın kaymasını engeller */
 }
 
-/* Ana İçerik */
 .main-content {
-    padding-top: 80px !important; /* Navbar yüksekliği kadar padding */
-    padding-bottom: 40px;
+    padding-top: 2vh;
+    width: 100%;
+    height: 100vh; /* Tam ekran kaplasın */
+    background-image: url(./images/anasayfa-genel2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed; /* Arka plan büyük ekranlarda sabit kalsın */
+}
+
+/* 📌 Mobil cihazlar için (768px ve altı) */
+@media (max-width: 768px) {
+    .main-content {
+        padding-top: 10vh;
+        background-size: auto;  /* Resmin orijinal boyutunu koru */
+        background-repeat: repeat;  /* Küçük ekranlarda tekrar etsin */
+        background-position: top left; /* Üstten hizalansın */
+        background-attachment: scroll; /* Mobilde arka plan sabit olmasın */
+    }
 }
 
 /* ======================== */
@@ -37,7 +54,21 @@ body, html {
 .active {
     font-weight: bold;
 }
-
+.sirketAd{
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+.altBaslik{
+    color: rgb(235, 230, 230) ;
+    font-weight: bold ;
+    font-size: 1rem ;
+}
+.icon{
+    color: rgb(235, 230, 230) !important ;
+    font-size: xx-large !important;
+    margin-right: 2vh;
+}
 /* Navbar Açılma Animasyonu */
 .collapse.navbar-collapse {
     transition: transform 0.5s ease, opacity 0.5s ease;
@@ -248,5 +279,35 @@ body, html {
     .sol-taraf img {
         max-width: 80%;
         height: auto;
+    }
+}
+
+
+
+/* Büyük ekranlarda (masaüstü) büyük yazı */
+@media (min-width: 992px) {
+    .sirketAd {
+        font-size: 4rem; /* Masaüstü için büyük */
+    }
+}
+
+/* Orta ekranlarda (tabletler) biraz daha küçük */
+@media (max-width: 991px) {
+    .sirketAd {
+        font-size: 3rem; /* Tabletler için */
+    }
+}
+
+/* Küçük ekranlarda (mobil) daha küçük olacak şekilde ölçekleme */
+@media (max-width: 768px) {
+    .sirketAd {
+        font-size: 2rem; /* Mobil için */
+    }
+}
+
+/* Çok küçük ekranlarda (dar mobil cihazlar) */
+@media (max-width: 480px) {
+    .sirketAd {
+        font-size: 1.5rem; /* Küçük telefonlar için */
     }
 }
