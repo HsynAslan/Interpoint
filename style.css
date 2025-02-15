@@ -612,3 +612,66 @@ body, html {
         justify-content: center;
         align-items: flex-start;
 }
+
+
+
+#urunler-container {
+    max-height: 500px; /* Maksimum yükseklik belirle */
+    overflow-y: auto;  /* Dikey kaydırma ekle */
+    padding-right: 10px; /* Scroll çubuğu üstüne içerik gelmesini engeller */
+}
+
+
+/* Ürünler Başlık */
+#urunler-baslik {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 40px 0 20px;
+    text-align: left;
+}
+
+/* Ürün Kartları */
+.urun-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.urun-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.urun-card:hover {
+    transform: scale(1.05);
+}
+
+/* Hover'da çıkan açıklama */
+.urun-overlay {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    transition: bottom 0.4s ease-in-out;
+}
+
+.urun-card:hover .urun-overlay {
+    bottom: 0;
+}
+
+/* Kartın tamamını tıklanabilir yapmak için */
+.urun-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
