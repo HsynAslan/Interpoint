@@ -12,6 +12,10 @@ body, html {
     overflow: hidden; /* Sayfanın kaymasını engeller */
    
 }
+.navbar-logo {
+    height: 40px; /* Logoyu istediğin boyuta ayarla */
+    margin-right: 10px; /* Yazıdan biraz uzaklaştır */
+}
 
 .main-content {
     
