@@ -65,13 +65,22 @@ body {
 /* Hakkımızda İçeriği */
 .hakkimizda {
     padding: 20px;
-    background-color: aliceblue;
+    background-color: white;
+}
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Yazıyı SVG'nin üstüne konumlandırabilmek için */
 }
 
-/* Sol Taraf */
 .sol-taraf {
-    text-align: center;
-    padding: 20px;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .sol-taraf img {
@@ -79,21 +88,23 @@ body {
     margin-bottom: 20px;
 }
 
-.sirket-adi {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333; /* Şirket adı rengi */
-}
 
+.sirket-adi {
+    margin-top: 5vh;
+    font-size: 2.5rem;
+    font-weight: bold;
+    transform: translate(25%);
+    color: #25567d;
+}
 /* Sağ Taraf */
 .sag-taraf {
     padding: 20px;
 }
 
 .baslik {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #333; /* Başlık rengi */
+    font-size: 3rem;
+    font-weight:800;
+    color: #25567d; /* Başlık rengi */
     margin-bottom: 20px;
 }
 
