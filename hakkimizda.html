@@ -12,6 +12,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body>
+    <div id="loading-screen">
+        <div class="loading-spinner"></div>
+    </div>
+    
   <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container-fluid">
@@ -81,9 +85,43 @@
             </div>
         </div>
     </div>
-
+  
+    
     <!-- Bootstrap 5 JS ve Bağımlılıkları -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const loadingScreen = document.getElementById("loading-screen");
+        
+            // Sayfa yüklenince loading'i gizle
+            setTimeout(() => {
+                loadingScreen.classList.remove("show");
+            }, 800); // 0.8 saniye sonra kaybolsun
+        
+            // Linklere tıklanınca yükleme animasyonunu göster
+            document.querySelectorAll("a").forEach(link => {
+                link.addEventListener("click", function (event) {
+                    const href = this.getAttribute("href");
+        
+                    // Eğer link boşsa veya bir ankora (#) gidiyorsa geç
+                    if (!href || href.startsWith("#") || href.startsWith("javascript")) {
+                        return;
+                    }
+        
+                    event.preventDefault(); // Linkin hemen yönlendirme yapmasını engelle
+                    loadingScreen.classList.add("show");
+        
+                    // 1.2 saniye bekletip yönlendir
+                    setTimeout(() => {
+                        window.location.assign(href);
+                    }, 1200);
+                });
+            });
+        });
+        </script>
+        
+        
+        
 </body>
 </html>
