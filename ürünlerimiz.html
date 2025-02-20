@@ -22,7 +22,7 @@
         <!-- Logo -->
         <a class="navbar-brand active" href="/index.html">
             <img src="./images/Interpoint Compressor Logo.png" alt="Interpoint Logo" class="navbar-logo">
-            Interpoint
+            <span style="color: white;">Interpoint</span>
         </a>
         <!-- Hamburger Menü Butonu (Sadece 768px ve altı) -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
@@ -38,7 +38,7 @@
                     <a class="nav-link" href="/iletisim.html">İletişim</a>
                 </li>
                 <li class="nav-item" style="margin-left: 4vh;">
-                    <a class="nav-link" href="/ürünlerimiz.html">Ürünlerimiz</a>
+                    <a class="nav-link active" href="/ürünlerimiz.html">Ürünlerimiz</a>
                 </li>
                 <li class="nav-item" style="margin-left: 4vh;">
                     <a class="nav-link" aria-current="page" href="/hakkimizda.html">Hakkımızda</a>
@@ -53,186 +53,64 @@
 <div class="container mt-5" style="margin-top: 10vh !important;">
     <h1 id="urunler-baslik" class="baslik">Ürünlerimiz</h1>
 
-    <!-- Ürünler Listesi -->
-    <div id="urunler-container" class="row">
-        <!-- Ürün Kartları -->
-        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-            <div class="urun-card">
-                <img src="https://picsum.photos/300/200" alt="Ürün 1">
-                <div class="urun-overlay">
-                    <h5>Ürün 1</h5>
-                    <p>Kompresör modeli XYZ özellikleri.</p>
+    <div class="row justify-content-center">
+
+        
+        <!-- Ürün 1: Valve (Resim ve Başlık Beraber Değişiyor) -->
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+            <div class="urun-card urun-animated" data-index="0">
+                <div class="urun-image-container">
+                    <img src="./images/1.png" class="urun-image front active" alt="Valve 1">
+                    <img src="./images/2.png" class="urun-image back" alt="Valve 2">
                 </div>
-                <a href="urun1.html" class="urun-link"></a>
+                <div class="urun-info">
+                    <h5 class="urun-title">Suction Valve (Emme Valfi)</h5>
+                    <a href="#" class="urun-btn">Daha fazla bilgi için tıkla</a>
+                </div>
             </div>
         </div>
 
-        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <!-- Ürün 2: Compressor (Sadece Resimler Değişiyor) -->
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
             <div class="urun-card">
-                <img src="https://picsum.photos/300/200" alt="Ürün 2">
-                <div class="urun-overlay">
-                    <h5>Ürün 2</h5>
-                    <p>Yüksek performanslı kompresör.</p>
+                <div class="urun-image-container urun-animated" data-index="1">
+                    <img src="./images/3.png" class="urun-image front active" alt="Compressor 1">
+                    <img src="./images/4.png" class="urun-image back" alt="Compressor 2">
                 </div>
-                <a href="urun2.html" class="urun-link"></a>
+                <div class="urun-info">
+                    <h5 class="urun-title">Compressor Rings  (Kompresör Segmanları)</h5>
+                    <a href="#" class="urun-btn">Daha fazla bilgi için tıkla</a>
+                </div>
             </div>
         </div>
 
-        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <!-- Ürün 3: Filter (Tek Resim, Sabit) -->
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
             <div class="urun-card">
-                <img src="https://picsum.photos/300/200" alt="Ürün 3">
-                <div class="urun-overlay">
-                    <h5>Ürün 3</h5>
-                    <p>Sanayi tipi güçlü kompresör.</p>
+                <div class="urun-image-container">
+                    <img src="./images/5.png" class="urun-image-sbt" alt="Filter">
                 </div>
-                <a href="urun3.html" class="urun-link"></a>
+                <div class="urun-info">
+                    <h5 class="urun-title">Filter</h5>
+                    <a href="#" class="urun-btn">Daha fazla bilgi için tıkla</a>
+                </div>
             </div>
         </div>
 
-        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <!-- Ürün 4: Pump (Tek Resim, Sabit) -->
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
             <div class="urun-card">
-                <img src="https://picsum.photos/300/200" alt="Ürün 4">
-                <div class="urun-overlay">
-                    <h5>Ürün 4</h5>
-                    <p>Enerji verimli kompresör.</p>
+                <div class="urun-image-container">
+                    <img src="./images/6.png" class="urun-image-sbt" alt="Pump">
                 </div>
-                <a href="urun4.html" class="urun-link"></a>
+                <div class="urun-info">
+                    <h5 class="urun-title">Pump</h5>
+                    <a href="#" class="urun-btn">Daha fazla bilgi için tıkla</a>
+                </div>
             </div>
         </div>
 
-        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-            <div class="urun-card">
-                <img src="https://picsum.photos/300/200" alt="Ürün 1">
-                <div class="urun-overlay">
-                    <h5>Ürün 1</h5>
-                    <p>Kompresör modeli XYZ özellikleri.</p>
-                </div>
-                <a href="urun1.html" class="urun-link"></a>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-            <div class="urun-card">
-                <img src="https://picsum.photos/300/200" alt="Ürün 2">
-                <div class="urun-overlay">
-                    <h5>Ürün 2</h5>
-                    <p>Yüksek performanslı kompresör.</p>
-                </div>
-                <a href="urun2.html" class="urun-link"></a>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-            <div class="urun-card">
-                <img src="https://picsum.photos/300/200" alt="Ürün 3">
-                <div class="urun-overlay">
-                    <h5>Ürün 3</h5>
-                    <p>Sanayi tipi güçlü kompresör.</p>
-                </div>
-                <a href="urun3.html" class="urun-link"></a>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-            <div class="urun-card">
-                <img src="https://picsum.photos/300/200" alt="Ürün 4">
-                <div class="urun-overlay">
-                    <h5>Ürün 4</h5>
-                    <p>Enerji verimli kompresör.</p>
-                </div>
-                <a href="urun4.html" class="urun-link"></a>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-            <div class="urun-card">
-                <img src="https://picsum.photos/300/200" alt="Ürün 1">
-                <div class="urun-overlay">
-                    <h5>Ürün 1</h5>
-                    <p>Kompresör modeli XYZ özellikleri.</p>
-                </div>
-                <a href="urun1.html" class="urun-link"></a>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-            <div class="urun-card">
-                <img src="https://picsum.photos/300/200" alt="Ürün 2">
-                <div class="urun-overlay">
-                    <h5>Ürün 2</h5>
-                    <p>Yüksek performanslı kompresör.</p>
-                </div>
-                <a href="urun2.html" class="urun-link"></a>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-            <div class="urun-card">
-                <img src="https://picsum.photos/300/200" alt="Ürün 3">
-                <div class="urun-overlay">
-                    <h5>Ürün 3</h5>
-                    <p>Sanayi tipi güçlü kompresör.</p>
-                </div>
-                <a href="urun3.html" class="urun-link"></a>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-            <div class="urun-card">
-                <img src="https://picsum.photos/300/200" alt="Ürün 4">
-                <div class="urun-overlay">
-                    <h5>Ürün 4</h5>
-                    <p>Enerji verimli kompresör.</p>
-                </div>
-                <a href="urun4.html" class="urun-link"></a>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-            <div class="urun-card">
-                <img src="https://picsum.photos/300/200" alt="Ürün 1">
-                <div class="urun-overlay">
-                    <h5>Ürün 1</h5>
-                    <p>Kompresör modeli XYZ özellikleri.</p>
-                </div>
-                <a href="urun1.html" class="urun-link"></a>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-            <div class="urun-card">
-                <img src="https://picsum.photos/300/200" alt="Ürün 2">
-                <div class="urun-overlay">
-                    <h5>Ürün 2</h5>
-                    <p>Yüksek performanslı kompresör.</p>
-                </div>
-                <a href="urun2.html" class="urun-link"></a>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-            <div class="urun-card">
-                <img src="https://picsum.photos/300/200" alt="Ürün 3">
-                <div class="urun-overlay">
-                    <h5>Ürün 3</h5>
-                    <p>Sanayi tipi güçlü kompresör.</p>
-                </div>
-                <a href="urun3.html" class="urun-link"></a>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-            <div class="urun-card">
-                <img src="https://picsum.photos/300/200" alt="Ürün 4">
-                <div class="urun-overlay">
-                    <h5>Ürün 4</h5>
-                    <p>Enerji verimli kompresör.</p>
-                </div>
-                <a href="urun4.html" class="urun-link"></a>
-            </div>
-        </div>
-
-    </div>
+</div>
 </div>
 
 <!-- Bootstrap JS -->
@@ -260,6 +138,55 @@
         });
     });
 </script>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+    // **1. ÜRÜN: Resim ve Başlık Beraber Değişiyor**
+    const firstProduct = document.querySelector(".urun-animated[data-index='0']");
+    const firstTitle = firstProduct.querySelector(".urun-title");
+    const firstImages = firstProduct.querySelectorAll(".urun-image");
+    const firstTitles = ["Suction Valve (Emme Valfi)", "Delivery Valve (Basma Valfi)"];
+    let firstIndex = 0;
+
+    // **Başlangıçta ilk resim aktif olmalı**
+    firstImages[0].classList.add("active");
+
+    function changeFirstProduct() {
+        firstImages.forEach(img => img.classList.remove("active")); // Tüm resimleri kaldır
+        firstTitle.style.opacity = "0"; // Başlığı gizle
+
+        setTimeout(() => {
+            firstIndex = (firstIndex + 1) % firstTitles.length;
+            firstImages[firstIndex].classList.add("active"); // Yeni resmi aktif et
+            firstTitle.textContent = firstTitles[firstIndex]; // Başlığı değiştir
+            firstTitle.style.opacity = "1"; // Başlığı geri getir
+        }, 500);
+    }
+
+    setInterval(changeFirstProduct, 4000);
+
+    // **2. ÜRÜN: Sadece Resimler Değişiyor (Başlık Değişmiyor)**
+    const secondProduct = document.querySelector(".urun-animated[data-index='1']");
+    const secondImages = secondProduct.querySelectorAll(".urun-image");
+    let secondIndex = 0;
+
+    // **Başlangıçta ilk resim aktif olmalı**
+    secondImages[0].classList.add("active");
+
+    function changeSecondProduct() {
+        secondImages.forEach(img => img.classList.remove("active")); // Tüm resimleri kaldır
+        secondIndex = (secondIndex + 1) % secondImages.length;
+        secondImages[secondIndex].classList.add("active"); // Yeni resmi aktif et
+    }
+
+    setInterval(changeSecondProduct, 4000);
+});
+
+
+</script>
+
+
 
 </body>
 </html>

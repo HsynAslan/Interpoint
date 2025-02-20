@@ -15,6 +15,7 @@ body, html {
 .navbar-logo {
     height: 40px; /* Logoyu istediğin boyuta ayarla */
     margin-right: 10px; /* Yazıdan biraz uzaklaştır */
+   
 }
 
 .main-content {
@@ -634,50 +635,158 @@ body, html {
     text-align: left;
 }
 
-/* Ürün Kartları */
+
+/* Kart Genel Stili */
 .urun-card {
-    position: relative;
+    background: #fff;
+    border-radius: 12px;
     overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-    cursor: pointer;
-}
-
-.urun-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-.urun-card:hover {
-    transform: scale(1.05);
-}
-
-/* Hover'da çıkan açıklama */
-.urun-overlay {
-    position: absolute;
-    bottom: -100%;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    padding: 10px;
-    transition: bottom 0.4s ease-in-out;
-}
-
-.urun-card:hover .urun-overlay {
-    bottom: 0;
-}
-
-/* Kartın tamamını tıklanabilir yapmak için */
-.urun-link {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    padding-bottom: 15px;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     height: 100%;
 }
 
+/* Kart Boyutlarını Eşitleme */
+.urun-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
 
+.urun-column {
+    flex: 1 1 calc(25% - 15px); /* Dört kartı yan yana hizalamak için */
+    min-width: 250px;
+}
+
+/* Hover Efekti */
+.urun-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Görsel Alanı */
+.urun-image-container {
+    position: relative;
+    width: 100%;
+    height: 250px; /* Kart yüksekliği eşit olması için artırıldı */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 📌 Resimlerin Kart İçinde Taşmasını Önleme */
+.urun-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Resmi kırpmadan içeri sığdır */
+    transition: opacity 1.2s ease-in-out;
+    opacity: 0;
+}
+
+/* Ön ve Arka Görseller */
+.urun-image-front {
+    z-index: 2;
+    opacity: 1;
+}
+
+.urun-image-back {
+    z-index: 1;
+}
+
+/* Aktif olan görsel */
+.urun-image.active {
+    opacity: 1 !important;
+}
+
+/* Tek Resimli Ürünler */
+.urun-image-sbt {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity 1.2s ease-in-out;
+    opacity: 1;
+}
+
+/* Ürün Bilgi Alanı */
+.urun-info {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.urun-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    transition: opacity 1s ease-in-out;
+}
+
+/* 📌 Butonlar Daha Büyük ve Tıklanabilir Hale Getirildi */
+.urun-btn {
+    display: block;
+    width: 90%;
+    margin: 10px auto;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.3s ease-in-out;
+}
+
+.urun-btn:hover {
+    background: #0056b3;
+}
+
+/* 📌 Mobil Uyum */
+@media (max-width: 1024px) {
+    .urun-column {
+        flex: 1 1 calc(50% - 15px); /* 2'li düzene geç */
+    }
+}
+
+@media (max-width: 768px) {
+    .urun-column {
+        flex: 1 1 100%; /* Tek sütun */
+    }
+
+    .urun-image-container {
+        height: 200px;
+    }
+
+    .urun-title {
+        font-size: 18px;
+    }
+
+    .urun-btn {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .urun-image-container {
+        height: 180px;
+    }
+
+    .urun-title {
+        font-size: 16px;
+    }
+
+    .urun-btn {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+}
