@@ -736,7 +736,7 @@ body, html {
     width: 90%;
     margin: 10px auto;
     padding: 10px;
-    background: #007bff;
+    background: #25567d;
     color: white;
     font-size: 16px;
     font-weight: bold;
@@ -788,5 +788,175 @@ body, html {
     .urun-btn {
         font-size: 13px;
         padding: 6px 10px;
+    }
+}
+
+/* ürünlerimiz  */
+
+
+
+/* Sayfa Başlığı */
+.page-header {
+    margin-top: 5rem;
+    position: relative;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 10%;
+    background: linear-gradient(to right, #007bff15, #0056b3);
+    color: white;
+}
+
+/* İçerik */
+.valve-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    padding: 1rem 2rem 2rem 1rem;
+    flex-wrap: wrap; /* Küçük ekranlarda taşmayı önler */
+    width: 100%;
+    max-width: 90%;
+    margin: 0 auto; /* Sayfa ortasında tutar */
+}
+
+/* Carousel */
+.carousel-container {
+    position: relative;
+    flex: 1;
+    min-width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carousel-container img {
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-container button {
+    margin-top: 15px;
+    background: #0056b3;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.carousel-container button i {
+    font-size: 18px;
+}
+
+
+.butonicon {
+    transition: transform 0.2s ease-in-out;
+}
+.butonicon:hover {
+    transform: scale(1.09);
+}
+
+/* Açıklama Alanı */
+.valve-info {
+    flex: 1;
+    min-width: 40%;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    max-height: 70vh; /* Taşmayı önlemek için maksimum yükseklik */
+}
+
+/* Sabit Açıklama Metni */
+.fixed-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Liste */
+.valve-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.valve-info li {
+    background: #e7f1ff;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    font-size: 18px;
+}
+
+/* 📌 Mobil Uyum */
+@media (max-width: 1024px) {
+    .valve-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        gap: 40px;
+        max-width: 100%;
+    }
+
+    .carousel-container {
+        min-width: 90%;
+    }
+
+    .carousel-container img {
+        max-height: 50vh;
+    }
+
+    .valve-info {
+        min-width: 90%;
+        max-height: none;
+        overflow-y: visible;
+        padding: 20px;
+    }
+
+    .carousel-container button {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+}
+
+/* Küçük Telefonlar */
+@media (max-width: 768px) {
+    .valve-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+        max-width: 100%;
+    }
+
+    .carousel-container, .valve-info {
+        min-width: 100%;
+        width: 100%;
+    }
+
+    .valve-info {
+        padding: 15px;
+    }
+
+    .valve-info ul {
+        font-size: 14px;
+    }
+
+    .carousel-container button {
+        font-size: 12px;
+        padding: 8px 12px;
     }
 }

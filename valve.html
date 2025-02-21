@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valve</title>
+    <link rel="icon" type="image/png" href="./images/Interpoint Compressor Logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<!-- Loading Screen -->
+<div id="loading-screen">
+    <div class="loading-spinner"></div>
+</div>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand active" href="/index.html">
+            <img src="./images/Interpoint Compressor Logo.png" alt="Interpoint Logo" class="navbar-logo">
+            <span style="color: white;">Interpoint</span>
+        </a>
+        <!-- Hamburger Menü Butonu (Sadece 768px ve altı) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+            data-bs-target="#navbarNav" aria-controls="navbarNav" 
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Menü Öğeleri -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto" style="display: flex; flex-direction: row-reverse;">
+                <li class="nav-item" style="margin-left: 4vh;">
+                    <a class="nav-link" href="/iletisim.html">İletişim</a>
+                </li>
+                <li class="nav-item" style="margin-left: 4vh;">
+                    <a class="nav-link active" href="/ürünlerimiz.html">Ürünlerimiz</a>
+                </li>
+                <li class="nav-item" style="margin-left: 4vh;">
+                    <a class="nav-link" aria-current="page" href="/hakkimizda.html">Hakkımızda</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    <!-- Sayfa Başlığı -->
+    <header class="page-header">
+        <h1 class="baslik">Valve</h1>
+    </header>
+
+<!-- İçerik Alanı -->
+<section class="valve-container">
+    <!-- Sol: Carousel -->
+    <div class="carousel-container">
+        <img id="valveImage" src="./images/1.png" alt="Suction Valve">
+        <div style="    display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: baseline;" class="butonicon"> <span style="font-size: 2rem; margin-right: 1rem;">👉</span>
+            <button id="changeImageBtn">Delivery Valve (Basma Valfi)</button></div>
+       
+    </div>
+
+   <!-- Sağ: Açıklamalar -->
+<div class="valve-info">
+    <p class="fixed-text">
+        <strong>Belliss & Morcom</strong> ve <strong>AF Compressor</strong> gibi yüksek performanslı kompresörlerde kullanılan 
+        <strong>suction valve (emme valfi)</strong> ve <strong>delivery valve (basma valfi)</strong>, hava veya gazın verimli ve güvenli bir şekilde 
+        sıkıştırılmasını sağlamak için kritik bileşenlerdir.
+    </p>
+
+    <h2 id="valveTitle">🔹 Suction Valve (Emme Valfi)</h2>
+    <ul id="valveDescription">
+        <li>🛠 Kompresörün emme aşamasında çalışır.</li>
+        <li>💨 Dış ortamdan gelen gazı içeri alır.</li>
+        <li>🚫 Geri kaçışı önleyerek yalnızca belirlenen yönde akışı sağlar.</li>
+        <li>⚡ Enerji verimliliğini artırarak güç tüketimini azaltır.</li>
+    </ul>
+
+    <p class="fixed-text">
+        Kullandığımız Avrupa standartlarındaki valfler, kompresörlerin uzun ömürlü ve verimli çalışmasını destekleyen temel bileşenler olup 
+        enerji tasarrufu ve operasyonel güvenlik açısından büyük önem taşır. Kompresörün verimli ve tasarruflu çalışması için düzenli 
+        bakımlarının yapılması önemlidir.
+    </p>
+</div>
+
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const imageElement = document.getElementById("valveImage");
+    const titleElement = document.getElementById("valveTitle");
+    const descriptionElement = document.getElementById("valveDescription");
+    const button = document.getElementById("changeImageBtn");
+
+    let images = [
+        {
+            src: "./images/1.png",
+            title: "Suction Valve (Emme Valfi)",
+            description: [
+                "🛠 Kompresörün emme aşamasında çalışır.",
+                "💨 Dış ortamdan gelen gazı içeri alır.",
+                "🚫 Geri kaçışı önleyerek yalnızca belirlenen yönde akışı sağlar.",
+                "⚡ Enerji verimliliğini artırarak güç tüketimini azaltır."
+            ]
+        },
+        {
+            src: "./images/2.png",
+            title: "Delivery Valve (Basma Valfi)",
+            description: [
+                "📤 Sıkıştırılan havanın kompresörden çıkmasını sağlar.",
+                "💪 Yüksek basınca dayanıklı olup havanın geri kaçmasını engeller.",
+                "🔄 Kompresörün istikrarlı çalışmasını sağlayarak sistemdeki basıncı düzenler.",
+                "🏭 Endüstriyel uygulamalarda güvenilir hava veya gaz akışı sağlar."
+            ]
+        }
+    ];
+
+    let index = 0;
+    let autoChange;
+
+    function changeContent() {
+        index = (index + 1) % images.length;
+        imageElement.style.opacity = "0";
+        titleElement.style.opacity = "0";
+        descriptionElement.style.opacity = "0";
+
+        setTimeout(() => {
+            imageElement.src = images[index].src;
+            titleElement.textContent = images[index].title;
+            
+            descriptionElement.innerHTML = "";
+            images[index].description.forEach(item => {
+                let li = document.createElement("li");
+                li.textContent = item;
+                descriptionElement.appendChild(li);
+            });
+
+            button.textContent = images[(index + 1) % images.length].title;
+            imageElement.style.opacity = "1";
+            titleElement.style.opacity = "1";
+            descriptionElement.style.opacity = "1";
+        }, 500);
+
+        resetAutoChange();
+    }
+
+    function resetAutoChange() {
+        clearInterval(autoChange);
+        autoChange = setInterval(changeContent, 10000);
+    }
+
+    button.addEventListener("click", changeContent);
+    resetAutoChange();
+});
+
+</script>
+<!-- Sayfa Yükleme Efekti -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const loadingScreen = document.getElementById("loading-screen");
+
+        setTimeout(() => {
+            loadingScreen.classList.remove("show");
+        }, 500);
+
+        document.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", function (event) {
+                const href = this.getAttribute("href");
+                if (!href || href.startsWith("#") || href.startsWith("javascript")) return;
+                event.preventDefault();
+                loadingScreen.classList.add("show");
+                setTimeout(() => {
+                    window.location.assign(href);
+                }, 800);
+            });
+        });
+    });
+</script>
+</body>
+</html>
