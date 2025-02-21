@@ -841,8 +841,8 @@ body, html {
 }
 
 .carousel-container button {
-    margin-top: 15px;
-    background: #0056b3;
+    /* margin-top: 15px; */
+    background: #25567d;
     color: white;
     border: none;
     padding: 12px 20px;
