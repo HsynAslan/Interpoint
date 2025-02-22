@@ -58,10 +58,11 @@
 
 
     <!-- Başlık Seçme Alanı -->
-<div class="valve-tabs" id="valveTabs">
-    <button class="tab-btn active" id="suctionBtn">Suction Valve (Emme Valfi)</button>
-    <button class="tab-btn" id="deliveryBtn">Delivery Valve (Basma Valfi)</button>
-</div>
+    <div class="valve-tabs">
+        <button id="suctionValveBtn" class="active">🔹 Suction Valve</button>
+        <button id="deliveryValveBtn">🔹 Delivery Valve</button>
+    </div>
+    
 
 <!-- İçerik Alanı -->
 <section class="valve-container">
@@ -74,10 +75,20 @@
         <div class="valve-info" id="suctionValveInfo">
             <h2>🔹 Suction Valve (Emme Valfi)</h2>
             <ul>
-                <li>🛠 Kompresörün emme aşamasında çalışır.</li>
-                <li>💨 Dış ortamdan gelen gazı içeri alır.</li>
-                <li>🚫 Geri kaçışı önleyerek yalnızca belirlenen yönde akışı sağlar.</li>
-                <li>⚡ Enerji verimliliğini artırarak güç tüketimini azaltır.</li>
+                <li>
+                    Belliss & Morcom ve AF Compressor gibi yüksek performanslı kompresörlerde kullanılan 
+                    <b>suction valve</b> (emme valfi) ve <b>delivery valve</b> (basma valfi), hava veya gazın verimli ve güvenli bir şekilde 
+                    sıkıştırılmasını sağlamak için kritik bileşenlerdir.
+                </li>
+                <ul>
+                    <li>🛠 Kompresörün emme aşamasında çalışır.</li>
+                    <li>💨 Dış ortamdan veya bir kaynaktan gelen gazı içeri alarak kompresörün içine yönlendirir.</li>
+                    <li>🚫 Havanın yalnızca belirlenen yönde akmasını sağlar ve geri kaçmasını önler.</li>
+                    <li>⚡ Enerji verimliliğini artırarak kompresörün daha az güç tüketmesini destekler.</li>
+                </ul>
+                <li>
+                    Kullandığımız Avrupa standartlarındaki valfler, kompresörlerin uzun ömürlü ve verimli çalışmasını destekleyen temel bileşenler olup enerji tasarrufu ve operasyonel güvenlik açısından büyük önem taşır. <b>Kompresörün verimli ve tasarruflu çalışması için düzenli bakımlarının yapılması önemlidir.</b> 
+                </li>
             </ul>
         </div>
     </div>
@@ -91,10 +102,20 @@
         <div class="valve-info" id="deliveryValveInfo">
             <h2>🔹 Delivery Valve (Basma Valfi)</h2>
             <ul>
-                <li>📤 Sıkıştırılan havanın kompresörden çıkmasını sağlar.</li>
-                <li>💪 Yüksek basınca dayanıklı olup havanın geri kaçmasını engeller.</li>
-                <li>🔄 Kompresörün istikrarlı çalışmasını sağlayarak sistemdeki basıncı düzenler.</li>
-                <li>🏭 Endüstriyel uygulamalarda güvenilir hava veya gaz akışı sağlar.</li>
+                <li>
+                    Belliss & Morcom ve AF Compressor gibi yüksek performanslı kompresörlerde kullanılan 
+                    <b>suction valve</b> (emme valfi) ve <b>delivery valve</b> (basma valfi), hava veya gazın verimli ve güvenli bir şekilde 
+                    sıkıştırılmasını sağlamak için kritik bileşenlerdir.
+                </li>
+                <ul>
+                    <li>📤 Sıkıştırılan havanın kompresörden çıkmasını sağlar.</li>
+                    <li>💪 Yüksek basınca dayanıklı olup havanın geri kaçmasını engeller.</li>
+                    <li>🔄 Kompresörün istikrarlı çalışmasını sağlayarak sistemdeki basıncı düzenler.</li>
+                    <li>🏭 Endüstriyel uygulamalarda güvenilir hava veya gaz akışı sağlar.</li>
+                </ul>
+                <li>
+                    Kullandığımız Avrupa standartlarındaki valfler, kompresörlerin uzun ömürlü ve verimli çalışmasını destekleyen temel bileşenler olup enerji tasarrufu ve operasyonel güvenlik açısından büyük önem taşır. <b>Kompresörün verimli ve tasarruflu çalışması için düzenli bakımlarının yapılması önemlidir.</b> 
+                </li>
             </ul>
         </div>
     </div>
@@ -105,37 +126,37 @@
 <script>
 
 document.addEventListener("DOMContentLoaded", function () {
-    const tabButtons = document.querySelectorAll(".tab-btn");
-    const contents = document.querySelectorAll(".valve-content");
+    const suctionValveContent = document.getElementById("suctionValveContent");
+    const deliveryValveContent = document.getElementById("deliveryValveContent");
 
-    function showContent(index) {
-        contents.forEach((content, i) => {
-            if (i === index) {
-                content.classList.add("active");
-            } else {
-                content.classList.remove("active");
-            }
-        });
+    const suctionValveBtn = document.getElementById("suctionValveBtn");
+    const deliveryValveBtn = document.getElementById("deliveryValveBtn");
 
-        tabButtons.forEach((btn, i) => {
-            if (i === index) {
-                btn.classList.add("active");
-            } else {
-                btn.classList.remove("active");
-            }
-        });
-    }
+    // Sayfa açıldığında emme valfi içeriğini göster
+    suctionValveContent.style.display = "block";
+    deliveryValveContent.style.display = "none";
 
-    // Sayfa ilk açıldığında "Emme Valfi" gösterilecek
-    showContent(0);
+    // Emme Valfi butonuna tıklanınca
+    suctionValveBtn.addEventListener("click", function () {
+        suctionValveContent.style.display = "block";
+        deliveryValveContent.style.display = "none";
 
-    // Butonlara tıklanınca içerik değişecek
-    tabButtons.forEach((btn, index) => {
-        btn.addEventListener("click", () => {
-            showContent(index);
-        });
+        // Buton stillerini güncelle
+        suctionValveBtn.classList.add("active");
+        deliveryValveBtn.classList.remove("active");
+    });
+
+    // Basma Valfi butonuna tıklanınca
+    deliveryValveBtn.addEventListener("click", function () {
+        suctionValveContent.style.display = "none";
+        deliveryValveContent.style.display = "block";
+
+        // Buton stillerini güncelle
+        suctionValveBtn.classList.remove("active");
+        deliveryValveBtn.classList.add("active");
     });
 });
+
 
 
 </script>
