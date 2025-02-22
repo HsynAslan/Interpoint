@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sealing Ring</title>
+    <link rel="icon" type="image/png" href="./images/Interpoint Compressor Logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body style="overflow-y: auto !important;">
+    
+<!-- Loading Screen -->
+<div id="loading-screen">
+    <div class="loading-spinner"></div>
+</div>
+
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand active" href="/index.html">
+            <img src="./images/Interpoint Compressor Logo.png" alt="Interpoint Logo" class="navbar-logo">
+            <span style="color: white;" class="active">Interpoint</span>
+        </a>
+        <!-- Hamburger Menü Butonu (Sadece 768px ve altı) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+            data-bs-target="#navbarNav" aria-controls="navbarNav" 
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Menü Öğeleri -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto" style="display: flex; flex-direction: row-reverse;">
+                <li class="nav-item" style="margin-left: 4vh;">
+                    <a class="nav-link" href="/iletisim.html">İletişim</a>
+                </li>
+                <li class="nav-item" style="margin-left: 4vh;">
+                    <a class="nav-link" href="/ürünlerimiz.html">Ürünlerimiz</a>
+                </li>
+                <li class="nav-item" style="margin-left: 4vh;">
+                    <a class="nav-link" aria-current="page" href="/hakkimizda.html">Hakkımızda</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+    <!-- Sayfa Başlığı -->
+    <header class="page-header">
+        <h1 class="baslik">Sealing Ring</h1>
+    </header>
+
+
+  
+    
+
+<!-- İçerik Alanı -->
+<section class="valve-container">
+    <!-- Suction Valve İçeriği -->
+    <div class="valve-content" id="suctionValveContent">
+        <div class="carousel-container2" id="suctionImageContainer">
+            <img id="suctionValveImage" src="./images/5.png" alt="Suction Valve">
+        </div>
+
+        <div class="valve-info" id="suctionValveInfo">
+            <h2>🔹 Sealing Ring (Sızdırmazlık Segmanları)</h2>
+            <ul>
+                <li>
+                    Sealing ring (sızdırmazlık segmanları), kompresör valflerinde gaz veya hava kaçağını önlemek ve sistemin verimli çalışmasını sağlamak amacıyla kullanılan önemli bileşenlerdir. Yüksek sıcaklık ve basınç altında güvenilir performans sunarak kompresörün ömrünü uzatır ve enerji kayıplarını minimize eder.
+                </li>
+                <br>
+                <h2>🛠️ Sealing Ring’lerin Görevleri</h2>
+                <ul>
+                    <li>🔒 <strong>Sızdırmazlık Sağlama:</strong> Hava veya gazın istenilen yönde akmasını sağlayarak kaçakları önler.</li>
+                    <li>🛡️ <strong>Aşınmaya Karşı Dayanıklılık:</strong> Sürekli hareket ve yüksek basınca maruz kalan yüzeyleri koruyarak uzun ömürlü kullanım sağlar.</li>
+                    <li>⚡ <strong>Enerji Verimliliği:</strong> Kaçakları önleyerek kompresörün daha düşük enerji tüketimiyle çalışmasına yardımcı olur.</li>
+                    <li>🔇 <strong>Titreşim ve Gürültü Azaltma:</strong> Kompresörün daha stabil ve sessiz çalışmasına katkıda bulunur.</li>
+                </ul>
+                <br>
+                <li>
+                    Yüksek kaliteli malzemelerden üretilen sızdırmazlık segmanlarımız, ağır çalışma koşullarına dayanıklı olup enerji tasarrufu ve operasyonel güvenlik açısından büyük önem taşır. <b> Kompresörün verimli ve uzun ömürlü çalışması için segmanlar periyodik bakımlarda değiştirilmelidir.</b>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+ 
+</section>
+
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+    const suctionValveContent = document.getElementById("suctionValveContent");
+    const deliveryValveContent = document.getElementById("deliveryValveContent");
+
+    const suctionValveBtn = document.getElementById("suctionValveBtn");
+    const deliveryValveBtn = document.getElementById("deliveryValveBtn");
+
+    // Sayfa açıldığında emme valfi içeriğini göster
+    suctionValveContent.style.display = "block";
+    deliveryValveContent.style.display = "none";
+
+    // Emme Valfi butonuna tıklanınca
+    suctionValveBtn.addEventListener("click", function () {
+        suctionValveContent.style.display = "block";
+        deliveryValveContent.style.display = "none";
+
+        // Buton stillerini güncelle
+        suctionValveBtn.classList.add("active");
+        deliveryValveBtn.classList.remove("active");
+    });
+
+    // Basma Valfi butonuna tıklanınca
+    deliveryValveBtn.addEventListener("click", function () {
+        suctionValveContent.style.display = "none";
+        deliveryValveContent.style.display = "block";
+
+        // Buton stillerini güncelle
+        suctionValveBtn.classList.remove("active");
+        deliveryValveBtn.classList.add("active");
+    });
+});
+
+
+
+</script>
+<!-- Sayfa Yükleme Efekti -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const loadingScreen = document.getElementById("loading-screen");
+
+        setTimeout(() => {
+            loadingScreen.classList.remove("show");
+        }, 500);
+
+        document.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", function (event) {
+                const href = this.getAttribute("href");
+                if (!href || href.startsWith("#") || href.startsWith("javascript")) return;
+                event.preventDefault();
+                loadingScreen.classList.add("show");
+                setTimeout(() => {
+                    window.location.assign(href);
+                }, 800);
+            });
+        });
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>
