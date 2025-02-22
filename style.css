@@ -958,4 +958,26 @@ body, html {
         padding-left: 0;
         text-align: center;
     }
+    .carousel-container2{
+        flex-direction: column;
+    }
+  
 }
+
+/* Mobil Uyumluluk */
+@media (max-width: 1200px) {
+
+    .carousel-container2{
+        flex-direction: column;
+    }
+    .carousel-container2 img:nth-of-type(2) {
+        max-width: 50% !important;
+        margin-top: -40%;
+        margin-left: 40%;
+    }
+}
+
+
+
+
+
