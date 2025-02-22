@@ -812,7 +812,7 @@ body, html {
 .valve-tabs {
     display: flex;
     justify-content: center;
-    background: #ddd;
+    background: #0057b34d;
     padding: 10px;
     border-radius: 8px;
 }
