@@ -89,8 +89,8 @@
             <div id="footer-sag" class="col-md-4 text-end column text-center centerFlex">
                 <h5>Süleyman Can Büber</h5>
                 <i>Teknisyen</i>
-                <p><a href="tel:+90**********" class="footer-link">📞 +90 *** *** ** **</a></p>
-                <p><a href="mailto:************?subject=Merhaba&body=Size ulaşmak istiyorum." class="footer-link">📧 *******@gmail.com</a></p>
+                <p><a href="tel:+905401502002" class="footer-link">📞 +90 540 150 20 02</a></p>
+                <p><a href="mailto:bubersuleymancan@gmail.com?subject=Merhaba&body=Size ulaşmak istiyorum." class="footer-link">📧 bubersuleymancan@gmail.com</a></p>
                 
             </div>
         </div>
@@ -107,32 +107,42 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const loadingScreen = document.getElementById("loading-screen");
-    
+        
+            // Sayfa ilk açıldığında loading spinner'ı gizle
             setTimeout(() => {
                 loadingScreen.classList.remove("show");
             }, 500);
-    
+        
+            // Tüm linkleri dinle
             document.querySelectorAll("a").forEach(link => {
                 link.addEventListener("click", function (event) {
                     const href = this.getAttribute("href");
-    
+        
                     // Eğer href değeri boşsa veya sayfa içi bağlantıysa, işlemi durdur
                     if (!href || href.startsWith("#") || href.startsWith("javascript")) return;
-    
-                    // Eğer link bir telefon veya e-posta bağlantısı ise loading-screen'i tetikleme
+        
+                    // Telefon ve e-posta bağlantılarında yükleme ekranını tetikleme
                     if (href.startsWith("tel:") || href.startsWith("mailto:")) return;
-    
+        
                     // Normal linkler için loading-screen göster ve yönlendir
                     event.preventDefault();
                     loadingScreen.classList.add("show");
-    
+        
                     setTimeout(() => {
                         window.location.assign(href);
                     }, 800);
                 });
             });
+        
+            // 🔹 GERİ TUŞU İLE GELİNİRSE LOADING SPINNER'I GİZLE
+            window.addEventListener("pageshow", function (event) {
+                if (event.persisted) { 
+                    loadingScreen.classList.remove("show");
+                }
+            });
         });
-    </script>
+        </script>
+        
     
 </body>
 </html>
