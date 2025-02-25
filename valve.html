@@ -8,6 +8,70 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
+    <style>
+/* Carousel Ana Konteyner */
+#carouselContainer {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 800px !important;
+    margin: auto !important;
+    overflow: hidden !important;
+    border-radius: 10px !important;
+}
+
+#carouselWrapper {
+    display: flex !important;
+    width: 100% !important; /* 3 resim olduğu için 3 katı genişlik */
+    transition: transform 0.5s ease-in-out !important;
+    justify-content: flex-start !important; /* Resimleri sola hizalar */
+}
+
+
+#carouselWrapper img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 90vh !important;
+    flex: 0 0 100% !important;
+    object-fit: cover !important; /* Alternatif: contain */
+}
+
+
+/* Butonlar */
+#prevButton, #nextButton {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+    color: white !important;
+    border: none !important;
+    padding: 10px 15px !important;
+    cursor: pointer !important;
+    font-size: 20px !important;
+    transition: background 0.3s !important;
+}
+
+#prevButton:hover, #nextButton:hover {
+    background: rgba(0, 0, 0, 0.8) !important;
+}
+
+#prevButton {
+    left: 10px !important;
+}
+
+#nextButton {
+    right: 10px !important;
+}
+
+/* Mobil İçin Butonları Küçült */
+@media (max-width: 768px) {
+    #prevButton, #nextButton {
+        padding: 8px 12px !important;
+        font-size: 16px !important;
+    }
+}
+
+
+    </style>
 </head>
 <body style="overflow-y: auto !important;">
     
@@ -56,11 +120,16 @@
         <h1 class="baslik">Valve</h1>
     </header>
 
-
-    <!-- Başlık Seçme Alanı -->
-    <div class="valve-tabs">
-        <button id="suctionValveBtn" class="active">🔹 Suction Valve</button>
-        <button id="deliveryValveBtn">🔹 Delivery Valve</button>
+    <div id="carouselContainer">
+        <div id="carouselWrapper">
+            <img src="./images/1.png" alt="Suction Valve">
+            <img src="./images/2.png" alt="Delivery Valve">
+            
+        </div>
+    
+        <!-- Butonlar -->
+        <button id="prevButton">&#9665;</button>
+        <button id="nextButton">&#9655;</button>
     </div>
     
 
@@ -69,11 +138,11 @@
     <!-- Suction Valve İçeriği -->
     <div class="valve-content" id="suctionValveContent">
         <div class="carousel-container" id="suctionImageContainer">
-            <img id="suctionValveImage" src="./images/1.png" alt="Suction Valve">
+          
         </div>
 
         <div class="valve-info" id="suctionValveInfo">
-            <h2>🔹 Suction Valve (Emme Valfi)</h2>
+            
             <ul>
                 <li>
                     Belliss & Morcom ve AF Compressor gibi yüksek performanslı kompresörlerde kullanılan 
@@ -81,7 +150,8 @@
                     sıkıştırılmasını sağlamak için kritik bileşenlerdir.
                 </li>
                 <br>
-                <h2>🛠️ Görevleri</h2>
+              
+                <h2>🛠️ Suction Valve (Emme Valfi) Görevleri</h2>
                 <ul>
                     <li>🛠 Kompresörün emme aşamasında çalışır.</li>
                     <li>💨 Dış ortamdan veya bir kaynaktan gelen gazı içeri alarak kompresörün içine yönlendirir.</li>
@@ -89,29 +159,8 @@
                     <li>⚡ Enerji verimliliğini artırarak kompresörün daha az güç tüketmesini destekler.</li>
                 </ul>
                 <br>
-                <li>
-                    Kullandığımız Avrupa standartlarındaki valfler, kompresörlerin uzun ömürlü ve verimli çalışmasını destekleyen temel bileşenler olup enerji tasarrufu ve operasyonel güvenlik açısından büyük önem taşır. <b>Kompresörün verimli ve tasarruflu çalışması için düzenli bakımlarının yapılması önemlidir.</b> 
-                </li>
-            </ul>
-        </div>
-    </div>
 
-    <!-- Delivery Valve İçeriği (Başlangıçta gizli) -->
-    <div class="valve-content" id="deliveryValveContent" style="display: none;">
-        <div class="carousel-container" id="deliveryImageContainer">
-            <img id="deliveryValveImage" src="./images/2.png" alt="Delivery Valve">
-        </div>
-
-        <div class="valve-info" id="deliveryValveInfo">
-            <h2>🔹 Delivery Valve (Basma Valfi)</h2>
-            <ul>
-                <li>
-                    Belliss & Morcom ve AF Compressor gibi yüksek performanslı kompresörlerde kullanılan 
-                    <b>suction valve</b> (emme valfi) ve <b>delivery valve</b> (basma valfi), hava veya gazın verimli ve güvenli bir şekilde 
-                    sıkıştırılmasını sağlamak için kritik bileşenlerdir.
-                </li>
-                <br>
-                <h2>🛠️ Görevleri</h2>
+                <h2>🛠️ Delivery Valve (Basma Valfi) Görevleri</h2>
                 <ul>
                     <li>📤 Sıkıştırılan havanın kompresörden çıkmasını sağlar.</li>
                     <li>💪 Yüksek basınca dayanıklı olup havanın geri kaçmasını engeller.</li>
@@ -125,47 +174,81 @@
             </ul>
         </div>
     </div>
+
+
 </section>
 
 
 
+
 <script>
+   document.addEventListener("DOMContentLoaded", function () {
+    let index = 0;
+    const images = document.querySelectorAll("#carouselWrapper img");
+    const totalImages = images.length;
+    const carouselWrapper = document.getElementById("carouselWrapper");
 
-document.addEventListener("DOMContentLoaded", function () {
-    const suctionValveContent = document.getElementById("suctionValveContent");
-    const deliveryValveContent = document.getElementById("deliveryValveContent");
+    const nextBtn = document.getElementById("nextButton");
+    const prevBtn = document.getElementById("prevButton");
 
-    const suctionValveBtn = document.getElementById("suctionValveBtn");
-    const deliveryValveBtn = document.getElementById("deliveryValveBtn");
+    function updateCarousel() {
+        carouselWrapper.style.transform = `translateX(-${index * 100}%)`;
+        carouselWrapper.style.marginLeft = "0px"; // Resmi sıfır noktasına çeker
+    }
 
-    // Sayfa açıldığında emme valfi içeriğini göster
-    suctionValveContent.style.display = "block";
-    deliveryValveContent.style.display = "none";
-
-    // Emme Valfi butonuna tıklanınca
-    suctionValveBtn.addEventListener("click", function () {
-        suctionValveContent.style.display = "block";
-        deliveryValveContent.style.display = "none";
-
-        // Buton stillerini güncelle
-        suctionValveBtn.classList.add("active");
-        deliveryValveBtn.classList.remove("active");
+    nextBtn.addEventListener("click", function () {
+        index = (index + 1) % totalImages;
+        updateCarousel();
+        resetAutoSlide();
     });
 
-    // Basma Valfi butonuna tıklanınca
-    deliveryValveBtn.addEventListener("click", function () {
-        suctionValveContent.style.display = "none";
-        deliveryValveContent.style.display = "block";
+    prevBtn.addEventListener("click", function () {
+        index = (index - 1 + totalImages) % totalImages;
+        updateCarousel();
+        resetAutoSlide();
+    });
 
-        // Buton stillerini güncelle
-        suctionValveBtn.classList.remove("active");
-        deliveryValveBtn.classList.add("active");
+    // Otomatik geçiş (5 saniye)
+    let autoSlide = setInterval(() => {
+        index = (index + 1) % totalImages;
+        updateCarousel();
+    }, 5000);
+
+    // Kullanıcı butona bastığında otomatik geçişi sıfırla
+    function resetAutoSlide() {
+        clearInterval(autoSlide);
+        autoSlide = setInterval(() => {
+            index = (index + 1) % totalImages;
+            updateCarousel();
+        }, 5000);
+    }
+
+    // Mobil kaydırma (Touch Swipe)
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    carouselWrapper.addEventListener("touchstart", (event) => {
+        touchStartX = event.changedTouches[0].screenX;
+    });
+
+    carouselWrapper.addEventListener("touchend", (event) => {
+        touchEndX = event.changedTouches[0].screenX;
+
+        if (touchStartX - touchEndX > 50) {
+            index = (index + 1) % totalImages;
+        } else if (touchEndX - touchStartX > 50) {
+            index = (index - 1 + totalImages) % totalImages;
+        }
+        updateCarousel();
+        resetAutoSlide();
     });
 });
 
+    </script>
+    
 
 
-</script>
+
 <!-- Sayfa Yükleme Efekti -->
 <script>
     document.addEventListener("DOMContentLoaded", function () {
