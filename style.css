@@ -7,7 +7,7 @@ body, html {
     width: 100%;
     height: 100%;
     font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
+    /* background-color: #f8f9fa; */
     scroll-behavior: smooth;
     overflow: hidden; /* Sayfanın kaymasını engeller */
    
@@ -17,14 +17,16 @@ body, html {
     margin-right: 10px; /* Yazıdan biraz uzaklaştır */
    
 }
-
+.opacity09{
+opacity: 0.9;
+}
 .main-content {
     
     padding-top: 2vh;
     width: 100%;
     height: 100vh; /* Tam ekran kaplasın */
     min-height: calc(100vh - 80px); /* Footer yüksekliği kadar azaltıyoruz */
-    background-image: url(./images/anasayfa-genel3.jpg);
+    /* background-image: url(./images/anasayfa-genel3.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -72,6 +74,7 @@ body, html {
     font-weight: bold;
     text-align: center;
 }
+
 .altBaslik{
     color: rgb(235, 230, 230) ;
     font-weight: bold ;
@@ -108,11 +111,31 @@ body, html {
 /* Navbar için Mobil ve Masaüstü */
 @media (max-width: 768px) {
     .navbar-nav {
-        flex-direction: column;
-        background-color: #1a6bbd;
-        padding: 10px;
+                display: flex !important;
+                flex-direction: column !important;
+                background-color: #1a6bbd;
+                padding: 10px;
+                flex-wrap: wrap;
+                align-content: flex-end;
+                align-items: flex-end;
     }
-
+    .navbar-nav li {
+        display: flex ;
+                /* display: block; */
+                width: 100%;
+                padding: 10px 15px;
+                margin-bottom: 5px;
+                border-radius: 10px;
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+                transition: background-color 0.3sease-in-out;
+                flex-direction: column;
+                flex-wrap: wrap;
+    }
+    
+    .navbar-nav li:hover {
+        background-color: #0e31558c;
+    }
+    
     .navbar-nav .nav-item {
         margin: 10px 0;
     }
@@ -539,6 +562,7 @@ body, html {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-content: space-around;
 }
 
 /* Sol, Orta ve Sağ Bölmeler */
