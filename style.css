@@ -299,7 +299,9 @@ opacity: 0.9;
     .navbar {
         padding: 10px 20px;
     }
-
+    .navbar .container-fluid{
+        flex-wrap: nowrap;
+    }
     .collapse.navbar-collapse {
         position: relative;
         transform: none !important;
