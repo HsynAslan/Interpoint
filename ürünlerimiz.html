@@ -43,6 +43,10 @@
                 <li class="nav-item" style="margin-left: 4vh;">
                     <a class="nav-link" aria-current="page" href="/hakkimizda.html">Hakkımızda</a>
                 </li>
+                <li class="nav-item" style="margin-left: 4vh;">
+                    <button id="lang-toggle" class="btn btn-primary">EN</button>
+                </li>
+                
             </ul>
         </div>
     </div>
@@ -155,53 +159,115 @@
     });
     </script>
     
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let currentLang = "tr"; // Varsayılan dil Türkçe
+            const langToggle = document.getElementById("lang-toggle");
+        
+            if (langToggle) {
+                langToggle.addEventListener("click", function () {
+                    currentLang = currentLang === "tr" ? "en" : "tr";
+                    langToggle.textContent = currentLang === "tr" ? "EN" : "TR";
+                });
+            }
+        
+            // **1. ÜRÜN: Resim ve Başlık Beraber Değişiyor**
+            const firstProduct = document.querySelector(".urun-animated[data-index='0']");
+            const firstTitle = firstProduct.querySelector(".urun-title");
+            const firstImages = firstProduct.querySelectorAll(".urun-image");
+        
+            const firstTitles = {
+                tr: ["Suction Valve (Emme Valfi)", "Delivery Valve (Basma Valfi)"],
+                en: ["Suction Valve", "Delivery Valve"]
+            };
+        
+            let firstIndex = 0;
+            firstImages[0].classList.add("active");
+        
+            function changeFirstProduct() {
+                firstImages.forEach(img => img.classList.remove("active"));
+                firstTitle.style.opacity = "0";
+        
+                setTimeout(() => {
+                    firstIndex = (firstIndex + 1) % firstTitles.tr.length;
+                    firstImages[firstIndex].classList.add("active");
+        
+                    // 🔹 Hangi dildeyse ona göre başlığı değiştir
+                    firstTitle.textContent = firstTitles[currentLang][firstIndex];
+        
+                    firstTitle.style.opacity = "1";
+                }, 500);
+            }
+        
+            setInterval(changeFirstProduct, 4000);
+        
+            // **2. ÜRÜN: Sadece Resimler Değişiyor (Başlık Değişmiyor)**
+            const secondProduct = document.querySelector(".urun-animated[data-index='1']");
+            const secondImages = secondProduct.querySelectorAll(".urun-image");
+            let secondIndex = 0;
+            secondImages[0].classList.add("active");
+        
+            function changeSecondProduct() {
+                secondImages.forEach(img => img.classList.remove("active"));
+                secondIndex = (secondIndex + 1) % secondImages.length;
+                secondImages[secondIndex].classList.add("active");
+            }
+        
+            setInterval(changeSecondProduct, 4000);
+        });
+        </script>
+        
 <script>
-
-document.addEventListener("DOMContentLoaded", function () {
-    // **1. ÜRÜN: Resim ve Başlık Beraber Değişiyor**
-    const firstProduct = document.querySelector(".urun-animated[data-index='0']");
-    const firstTitle = firstProduct.querySelector(".urun-title");
-    const firstImages = firstProduct.querySelectorAll(".urun-image");
-    const firstTitles = ["Suction Valve (Emme Valfi)", "Delivery Valve (Basma Valfi)"];
-    let firstIndex = 0;
-
-    // **Başlangıçta ilk resim aktif olmalı**
-    firstImages[0].classList.add("active");
-
-    function changeFirstProduct() {
-        firstImages.forEach(img => img.classList.remove("active")); // Tüm resimleri kaldır
-        firstTitle.style.opacity = "0"; // Başlığı gizle
-
-        setTimeout(() => {
-            firstIndex = (firstIndex + 1) % firstTitles.length;
-            firstImages[firstIndex].classList.add("active"); // Yeni resmi aktif et
-            firstTitle.textContent = firstTitles[firstIndex]; // Başlığı değiştir
-            firstTitle.style.opacity = "1"; // Başlığı geri getir
-        }, 500);
-    }
-
-    setInterval(changeFirstProduct, 4000);
-
-    // **2. ÜRÜN: Sadece Resimler Değişiyor (Başlık Değişmiyor)**
-    const secondProduct = document.querySelector(".urun-animated[data-index='1']");
-    const secondImages = secondProduct.querySelectorAll(".urun-image");
-    let secondIndex = 0;
-
-    // **Başlangıçta ilk resim aktif olmalı**
-    secondImages[0].classList.add("active");
-
-    function changeSecondProduct() {
-        secondImages.forEach(img => img.classList.remove("active")); // Tüm resimleri kaldır
-        secondIndex = (secondIndex + 1) % secondImages.length;
-        secondImages[secondIndex].classList.add("active"); // Yeni resmi aktif et
-    }
-
-    setInterval(changeSecondProduct, 4000);
-});
-
-
-</script>
-
+    document.addEventListener("DOMContentLoaded", function () {
+        const langToggle = document.getElementById("lang-toggle");
+        const loadingScreen = document.getElementById("loading-screen");
+    
+        // 🔹 Sadece bu sayfa için çeviri nesnesi
+        const translations = {
+            "Ürünlerimiz": "Our Products",
+            "İletişim": "Contact",
+            "Hakkımızda": "About Us",
+            "Interpoint Kompresör": "Interpoint Compressor",
+            "Daha fazla bilgi için tıkla": "Click for more information",
+            "Suction Valve (Emme Valfi)": "Suction Valve (Intake Valve)",
+            "Delivery Valve (Basma Valfi)": "Delivery Valve (Discharge Valve)",
+            "Compressor Rings  (Kompresör Segmanları)": "Compressor Rings",
+            "Sealing Ring (Sızdırmazlık Segmanları)": "Sealing Ring",
+            "O-Ring ve Gasket": "O-Ring and Gasket"
+        };
+    
+        let currentLang = "tr";
+    
+        // 🔹 Dil değiştirme butonuna tıklanınca çeviri işlemi
+        langToggle.addEventListener("click", function () {
+            loadingScreen.classList.add("show");
+    
+            setTimeout(() => {
+                currentLang = currentLang === "tr" ? "en" : "tr";
+                langToggle.textContent = currentLang === "tr" ? "EN" : "TR";
+    
+                document.querySelectorAll(".nav-link, .navbar-brand span, h1, .urun-title, .urun-btn").forEach(el => {
+                    let cleanText = el.textContent.trim(); // Boşlukları temizle
+    
+                    if (translations[cleanText]) {
+                        el.textContent = translations[cleanText]; // Türkçeden İngilizceye çevir
+                    } else {
+                        Object.entries(translations).forEach(([tr, en]) => {
+                            if (cleanText === en) {
+                                el.textContent = tr; // İngilizceden Türkçeye çevir
+                            }
+                        });
+                    }
+                });
+    
+                setTimeout(() => {
+                    loadingScreen.classList.remove("show");
+                }, 300);
+            }, 300);
+        });
+    });
+    </script>
+    
 
 
 </body>
