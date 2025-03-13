@@ -9,6 +9,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <style>
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            
+            z-index: 1000; /* Loading ekranını en üste yerleştir */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    <style>
 /* Carousel Ana Konteyner */
 #carouselContainer {
     position: relative !important;
@@ -109,6 +123,9 @@
                 <li class="nav-item" style="margin-left: 4vh;">
                     <a class="nav-link" aria-current="page" href="/hakkimizda.html">Hakkımızda</a>
                 </li>
+                <li class="nav-item" style="margin-left: 4vh;">
+                    <button id="lang-toggle" class="btn btn-primary">EN</button>
+                </li>
             </ul>
         </div>
     </div>
@@ -145,15 +162,15 @@
         <div class="valve-info" id="suctionValveInfo">
             
             <ul>
-                <li>
+                <li id="translate1">
                     Belliss & Morcom ve AF Compressor gibi yüksek performanslı kompresörlerde kullanılan 
                     <b>suction valve</b> (emme valfi) ve <b>delivery valve</b> (basma valfi), hava veya gazın verimli ve güvenli bir şekilde 
                     sıkıştırılmasını sağlamak için kritik bileşenlerdir.
                 </li>
                 <br>
               
-                <h2>🔹 Suction Valve (Emme Valfi) Görevleri</h2>
-                <ul>
+                <h2 id="translate2">🔹 Suction Valve (Emme Valfi) Görevleri</h2>
+                <ul id="translate3">
                     <li> Kompresörün emme aşamasında çalışır.</li>
                     <li> Dış ortamdan veya bir kaynaktan gelen gazı içeri alarak kompresörün içine yönlendirir.</li>
                     <li> Havanın yalnızca belirlenen yönde akmasını sağlar ve geri kaçmasını önler.</li>
@@ -161,15 +178,15 @@
                 </ul>
                 <br>
 
-                <h2>🔹 Delivery Valve (Basma Valfi) Görevleri</h2>
-                <ul>
+                <h2 id="translate4">🔹 Delivery Valve (Basma Valfi) Görevleri</h2>
+                <ul id="translate5">
                     <li> Sıkıştırılan havanın kompresörden çıkmasını sağlar.</li>
                     <li> Yüksek basınca dayanıklı olup havanın geri kaçmasını engeller.</li>
                     <li> Kompresörün istikrarlı çalışmasını sağlayarak sistemdeki basıncı düzenler.</li>
                     <li> Endüstriyel uygulamalarda güvenilir hava veya gaz akışı sağlar.</li>
                 </ul>
                 <br>
-                <li>
+                <li id="translate6">
                     Kullandığımız Avrupa standartlarındaki valfler, kompresörlerin uzun ömürlü ve verimli çalışmasını destekleyen temel bileşenler olup enerji tasarrufu ve operasyonel güvenlik açısından büyük önem taşır. <b>Kompresörün verimli ve tasarruflu çalışması için düzenli bakımlarının yapılması önemlidir.</b> 
                 </li>
             </ul>
@@ -293,6 +310,11 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
+
+
+<script>
+    
+</script>
 
 </body>
 </html>
