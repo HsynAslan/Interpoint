@@ -97,7 +97,7 @@ opacity: 0.9;
     left: 0;
     right: 0;
     background-color: white;
-    z-index: 1000;
+    z-index: 900;
     height: auto;
     overflow: hidden;
 }
