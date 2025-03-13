@@ -23,7 +23,7 @@
         <!-- Logo -->
         <a class="navbar-brand active" href="/index.html">
             <img src="./images/Interpoint Compressor Logo.png" alt="Interpoint Logo" class="navbar-logo">
-            <span style="color: white;">Interpoint Kompresör</span>
+            <span style="color: white;" class="sirket-adi3">Interpoint Kompresör</span>
         </a>
         <!-- Hamburger Menü Butonu (Sadece 768px ve altı) -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
@@ -44,6 +44,9 @@
                 <li class="nav-item" style="margin-left: 4vh;">
                     <a class="nav-link active" aria-current="page" href="/hakkimizda.html">Hakkımızda</a>
                 </li>
+                <li class="nav-item" style="margin-left: 4vh;">
+                    <button id="lang-toggle" class="btn btn-primary">EN</button>
+                </li>
             </ul>
         </div>
     </div>
@@ -62,28 +65,16 @@
             <div class="col-md-8 sag-taraf">
                 <h1 class="baslik">Hakkımızda</h1>
                 <p class="metin">
-                    2018 yılında faaliyete başlayan Interpoint Kompresör, sektördeki engin deneyimi ve
-                    kadrosuyla, Af Compressor ve Bellis Morcom kompresörleri için yedek parça temini ve teknik
-                    servis hizmeti sunmaktadır. Kuruluşumuzdan bu yana, her bir müşterimizin memnuniyetini en
-                    ön planda tutarak, kaliteli, güvenilir ve sorunsuz çözümler sağlama misyonunu benimsiyoruz.
+                    Interpoint Kompresör, sektördeki uzun yıllara dayanan deneyimi ve uzman kadrosuyla, Af Compressor ve Bellis Morcom kompresörleri için yedek parça temini ve teknik servis hizmeti sunan güvenilir bir firmadır. 2018 yılında faaliyetlerine başlayan firmamız, sahip olduğu bilgi birikimi ve güçlü altyapısıyla müşterilerine yüksek kalitede hizmet sunmayı amaç edinmiştir.  
                 </p>
                 <p class="metin">
-                    Interpoint Kompresör olarak, işimizi sadece bir hizmet sunmak değil, her bir projede
-                    mükemmel sonuçlar elde etmek olarak görüyoruz. Her adımda titizlikle çalışıyor, olası her
-                    türlü problemden kaçınarak, hizmetimizin %100 kusursuz olmasını sağlıyoruz. Çünkü biliyoruz
-                    ki, müşterilerimizin güveni ve memnuniyeti, başarımızın temel taşıdır.
+                    Müşteri memnuniyetini daima önceliğimiz olarak görmekte, her projede en iyi çözümleri sunmak için titizlikle çalışmaktayız. Deneyimli ekibimiz, olası riskleri en aza indirerek verimli ve sorunsuz hizmet sağlamayı hedeflemekte, tüm süreçlerde yüksek kalite standartlarını gözetmektedir. Güvenilirlik ve müşteri memnuniyetinin, sürdürülebilir başarının temel unsurları olduğuna inanıyoruz.  
                 </p>
                 <p class="metin">
-                    Hedefimiz, müşterilerimizin her türlü ihtiyacına hızlı, etkili ve kaliteli çözümler sunmak,
-                    sektördeki her adımda lider olmayı sağlamaktır. Türkiye’nin yanı sıra, dünya çapında birçok
-                    prestijli şirkette iş birliği yaparak, kaliteli malzeme ve mükemmel hizmet sunma vizyonumuzu
-                    her geçen gün daha da genişletiyoruz. Hızlı, güvenilir ve profesyonel hizmet anlayışımızla, her
-                    zaman yanınızdayız.
+                    Interpoint Kompresör olarak hedefimiz, müşterilerimize hızlı, etkili ve kaliteli çözümler sunarak sektörde fark yaratmaktır. Türkiye’nin yanı sıra, küresel ölçekte de birçok şirketle iş birliği yaparak, güçlü tedarik ağımız ve profesyonel hizmet anlayışımızla büyümeye devam ediyoruz.  
                 </p>
                 <p class="metin">
-                    Interpoint Kompresör, sadece bir hizmet sağlayıcısı değil, iş ortaklarımız için uzun vadeli
-                    güvenilir bir çözüm ortağı olmayı taahhüt eder. Müşteri odaklı yaklaşımımızla, kompresör
-                    sektöründe fark yaratmaya ve sektöre yön vermeye devam ediyoruz.
+                    Sadece bir hizmet sağlayıcısı olmanın ötesinde, iş ortaklarımız için uzun vadeli ve güvenilir bir çözüm ortağı olmayı taahhüt ediyoruz. Sektördeki deneyimimiz, uzman kadromuz ve müşteri odaklı yaklaşımımızla, kompresör sektöründe değer yaratmaya ve gelişime katkıda bulunmaya devam ediyoruz.
                 </p>
             </div>
         </div>
@@ -132,7 +123,97 @@
         });
         </script>
         
-        
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // 🌍 Çeviri verileri
+                const translations = {
+                    tr: {
+                        navbar: {
+                            about: "Hakkımızda",
+                            products: "Ürünlerimiz",
+                            contact: "İletişim"
+                        },
+                        siteTitle: "Interpoint Kompresör",
+                        aboutTitle: "Hakkımızda",
+                        aboutText: [
+                            "Interpoint Kompresör, sektördeki uzun yıllara dayanan deneyimi ve uzman kadrosuyla, Af Compressor ve Bellis Morcom kompresörleri için yedek parça temini ve teknik servis hizmeti sunan güvenilir bir firmadır. 2018 yılında faaliyetlerine başlayan firmamız, sahip olduğu bilgi birikimi ve güçlü altyapısıyla müşterilerine yüksek kalitede hizmet sunmayı amaç edinmiştir.",
+                            "Müşteri memnuniyetini daima önceliğimiz olarak görmekte, her projede en iyi çözümleri sunmak için titizlikle çalışmaktayız. Deneyimli ekibimiz, olası riskleri en aza indirerek verimli ve sorunsuz hizmet sağlamayı hedeflemekte, tüm süreçlerde yüksek kalite standartlarını gözetmektedir.",
+                            "Interpoint Kompresör olarak hedefimiz, müşterilerimize hızlı, etkili ve kaliteli çözümler sunarak sektörde fark yaratmaktır. Türkiye’nin yanı sıra, küresel ölçekte de birçok şirketle iş birliği yaparak, güçlü tedarik ağımız ve profesyonel hizmet anlayışımızla büyümeye devam ediyoruz.",
+                            "Sadece bir hizmet sağlayıcısı olmanın ötesinde, iş ortaklarımız için uzun vadeli ve güvenilir bir çözüm ortağı olmayı taahhüt ediyoruz. Sektördeki deneyimimiz, uzman kadromuz ve müşteri odaklı yaklaşımımızla, kompresör sektöründe değer yaratmaya ve gelişime katkıda bulunmaya devam ediyoruz."
+                        ]
+                    },
+                    en: {
+                        navbar: {
+                            about: "About Us",
+                            products: "Our Products",
+                            contact: "Contact"
+                        },
+                        siteTitle: "Interpoint Compressor",
+                        aboutTitle: "About Us",
+                        aboutText: [
+                            "Interpoint Compressor is a reliable company providing spare parts and technical service for Af Compressor and Bellis Morcom compressors with its long-standing experience and expert team. Founded in 2018, our company aims to offer high-quality service to its customers with its accumulated knowledge and strong infrastructure.",
+                            "We always prioritize customer satisfaction and work meticulously to provide the best solutions in every project. Our experienced team aims to minimize potential risks and provide efficient, seamless service while adhering to high-quality standards.",
+                            "As Interpoint Compressor, our goal is to create a difference in the sector by providing fast, effective, and high-quality solutions to our customers. In addition to Turkey, we continue to grow by cooperating with many companies globally with our strong supply network and professional service approach.",
+                            "Beyond being just a service provider, we are committed to being a long-term and reliable solution partner for our business associates. With our industry experience, expert team, and customer-oriented approach, we continue to create value in the compressor sector and contribute to development."
+                        ]
+                    }
+                };
+            
+                // 🌍 Varsayılan dili al (localStorage'dan ya da TR yap)
+                let currentLang =  "tr";
+                const langToggle = document.getElementById("lang-toggle");
+                const loadingScreen = document.getElementById("loading-screen");
+            
+                function updateLanguage() {
+                    const langData = translations[currentLang];
+            
+                    // 📌 Navbar güncellemesi
+                    document.querySelector("a[href='/hakkimizda.html']").textContent = langData.navbar.about;
+                    document.querySelector("a[href='/ürünlerimiz.html']").textContent = langData.navbar.products;
+                    document.querySelector("a[href='/iletisim.html']").textContent = langData.navbar.contact;
+            
+                    // 📌 Sayfa başlığı ve içerik güncellemesi
+                    document.querySelector(".baslik").textContent = langData.aboutTitle;
+            
+                    // 📌 Şirket başlığı güncellemesi
+                    document.querySelector(".sirket-adi3").textContent = langData.siteTitle;
+            
+                    // 📌 Paragrafları güncelle
+                    const paragraphs = document.querySelectorAll(".sag-taraf .metin");
+                    paragraphs.forEach((p, index) => {
+                        p.textContent = langData.aboutText[index] || "";
+                    });
+            
+                    // 📌 Buton metnini güncelle
+                    langToggle.textContent = currentLang === "tr" ? "EN" : "TR";
+                }
+            
+                // 🌍 Buton tıklanınca dili değiştir
+                if (langToggle) {
+                    langToggle.addEventListener("click", function () {
+                        // 🌟 Loading Spinner Göster
+                        loadingScreen.classList.add("show");
+            
+                        setTimeout(() => {
+                            currentLang = currentLang === "tr" ? "en" : "tr";
+                            localStorage.setItem("lang", currentLang); // Yeni dili kaydet
+                            updateLanguage();
+            
+                            // ⏳ 800ms sonra Loading Spinner'ı Kaldır
+                            setTimeout(() => {
+                                loadingScreen.classList.remove("show");
+                            }, 800);
+                        }, 300);
+                    });
+            
+                    // 🌍 Sayfa yüklendiğinde dili uygula
+                    updateLanguage();
+                }
+            });
+            </script>
+            
+            
         
 </body>
 </html>
