@@ -13,7 +13,42 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="preload" href="./images/arkaplan.mp4" as="video" type="video/mp4">
     <style>
-       
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animated-text {
+            
+            
+            animation: slideInLeft 1s ease-out forwards;
+        }
+
+
+
+        @keyframes slideInLeftLong {
+            from {
+                opacity: 0;
+                transform: translateX(-400%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animated-textLong {
+            
+            
+            animation: slideInLeftLong 1s ease-out forwards;
+        }
+    
     
        * { margin: 0; padding: 0; box-sizing: border-box; }
         .slider-container {
@@ -169,7 +204,54 @@
         top: 66px; /* Mobilde navbar yüksekliği daha az olabilir */
     }
 }
+/* ///////////////////// */
 
+.circle-quarter2 {
+    position: absolute;
+    bottom:0px;
+    right:0px;
+    width: 300px;
+    height: 300px;
+   
+    border-top-left-radius: 300px; /* Sağ alt köşe yuvarlak */
+    
+    z-index: -1; /* Navbarın altında kalması için */
+
+    /* Başlangıç rengi */
+    background: #2a8686;
+
+    /* Animasyonu ekle */
+    animation: colorCycle2 80s linear infinite alternate;
+
+}
+/* Renk değiştirme animasyonu */
+@keyframes colorCycle2 {
+    0% {
+       
+        background: #02417f;
+    }
+    100% {
+        
+        background: #2a8686;
+    }
+}
+@media (max-width: 768px) {
+    .circle-quarter2 {
+        width: 200px;
+        height: 200px;
+        border-top-left-radius: 200px;
+        
+    }
+}
+
+@media (max-width: 480px) {
+    .circle-quarter2 {
+        width: 160px;
+        height: 160px;
+        border-top-left-radius: 160px;
+        
+    }
+}
 
     </style>
 </head>
@@ -194,7 +276,7 @@
         <div class="container-fluid">
             <a class="navbar-brand active" href="/index.html">
                 <img src="./images/Interpoint Compressor Logo.png" alt="Interpoint Logo" class="navbar-logo">
-                <span style="color: white;" class="active">Interpoint Kompresör</span>
+                <span style="color: white;" class="active animated-text">Interpoint Kompresör</span>
             </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
@@ -231,15 +313,15 @@
             <!-- Sol Taraf -->
             <div class="col-md-6 d-flex flex-column justify-content-center align-items-center text-center">
                 <div class="mb-3" style="display: flex;">
-                    <i class="bi bi-shield-check icon-large icon"></i>
+                    <i class="bi bi-shield-check icon-large icon animated-textLong"></i>
                     <div style="display: flex; flex-direction: column; flex-wrap: wrap; align-items: flex-start;">
-                        <span class="altBaslik">Güvenilir Hizmet.</span>
-                        <span class="altBaslik"><p>Mükemmel Çözümler.</p></span>
+                        <span class="altBaslik animated-text">Güvenilir Hizmet.</span>
+                        <span class="altBaslik animated-text"><p>Mükemmel Çözümler.</p></span>
                     </div>
                 </div>
-                <h1 class="sirketAd">INTERPOINT</h1>
-                <h1 class="sirketAd">KOMPRESOR</h1>
-                <p class="lead altBaslik">Servis & Yedek Parça</p>
+                <h1 class="sirketAd animated-text">INTERPOINT</h1>
+                <h1 class="sirketAd animated-text">KOMPRESOR</h1>
+                <p class="lead altBaslik animated-text">Servis & Yedek Parça</p>
             </div>
             <!-- Sağ Taraf -->
 
@@ -270,6 +352,8 @@
         </div>
     </div>
    
+    <div class="circle-quarter2"></div>
+
     <!-- Bootstrap 5 JS ve Bağımlılıkları -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
