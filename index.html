@@ -143,13 +143,15 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto" style="display: flex; flex-direction: row-reverse;">
                     <li class="nav-item" style="margin-left: 4vh;">
-                        <a class="nav-link" href="/iletisim.html">İletişim</a>
+                        <a class="nav-link" aria-current="page" href="/hakkimizda.html">Hakkımızda</a>
                     </li>
+                   
                     <li class="nav-item" style="margin-left: 4vh;">
                         <a class="nav-link" href="/ürünlerimiz.html">Ürünlerimiz</a>
                     </li>
                     <li class="nav-item" style="margin-left: 4vh;">
-                        <a class="nav-link" aria-current="page" href="/hakkimizda.html">Hakkımızda</a>
+                        
+                        <a class="nav-link" href="/iletisim.html">İletişim</a>
                     </li>
                     <li class="nav-item" style="margin-left: 4vh;">
                         <button id="lang-toggle" class="btn btn-primary">EN</button>
@@ -251,58 +253,63 @@
             video.play(); // Videoyu otomatik başlat
         });
     </script>
-   <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const langToggle = document.getElementById("lang-toggle");
-    const loadingScreen = document.getElementById("loading-screen");
-    const navbarCollapse = document.querySelector(".navbar-collapse"); // Navbar menüsünü seç
-    
-    const elementsToTranslate = {
-        "İletişim": "Contact",
-        "Ürünlerimiz": "Our Products",
-        "Hakkımızda": "About Us",
-        "Interpoint Kompresör": "Interpoint Compressor",
-        "Güvenilir Hizmet.": "Reliable Service.",
-        "Mükemmel Çözümler.": "Perfect Solutions.",
-        "Servis & Yedek Parça": "Service & Spare Parts",
-        "INTERPOINT": "INTERPOINT",
-        "KOMPRESOR": "COMPRESSOR"
-    };
-
-    let currentLang = "tr";
-    
-    langToggle.addEventListener("click", function () {
-        loadingScreen.classList.add("show");
-
-        setTimeout(() => {
-            currentLang = currentLang === "tr" ? "en" : "tr";
-            langToggle.textContent = currentLang === "tr" ? "EN" : "TR";
-
+ <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const langToggle = document.getElementById("lang-toggle");
+        const loadingScreen = document.getElementById("loading-screen");
+        const navbarCollapse = document.querySelector(".navbar-collapse");
+  
+        const elementsToTranslate = {
+            "İletişim": "Contact",
+            "Ürünlerimiz": "Our Products",
+            "Hakkımızda": "About Us",
+            "Interpoint Kompresör": "Interpoint Compressor",
+            "Güvenilir Hizmet.": "Reliable Service.",
+            "Mükemmel Çözümler.": "Perfect Solutions.",
+            "Servis & Yedek Parça": "Service & Spare Parts",
+            "INTERPOINT": "INTERPOINT",
+            "KOMPRESOR": "COMPRESSOR"
+        };
+  
+        // Varsayılan dili belirle
+        let currentLang = localStorage.getItem("selectedLang") || "tr";
+        updateLanguage(currentLang);
+  
+        langToggle.addEventListener("click", function () {
+            loadingScreen.classList.add("show");
+  
+            setTimeout(() => {
+                currentLang = currentLang === "tr" ? "en" : "tr";
+                localStorage.setItem("selectedLang", currentLang); // Seçilen dili kaydet
+                updateLanguage(currentLang);
+  
+                // Navbar'ı kapat
+                if (navbarCollapse.classList.contains("show")) {
+                    navbarCollapse.classList.remove("show");
+                }
+  
+                setTimeout(() => {
+                    loadingScreen.classList.remove("show");
+                }, 300);
+            }, 300);
+        });
+  
+        function updateLanguage(lang) {
+            langToggle.textContent = lang === "tr" ? "EN" : "TR";
+  
             document.querySelectorAll(".nav-link, .navbar-brand span, .altBaslik, .sirketAd").forEach(el => {
-                if (elementsToTranslate[el.textContent.trim()]) {
-                    el.textContent = elementsToTranslate[el.textContent.trim()];
-                } else {
-                    Object.entries(elementsToTranslate).forEach(([tr, en]) => {
-                        if (el.textContent.trim() === en) {
-                            el.textContent = tr;
-                        }
-                    });
+                let text = el.textContent.trim();
+                if (lang === "en" && elementsToTranslate[text]) {
+                    el.textContent = elementsToTranslate[text];
+                } else if (lang === "tr") {
+                    let trText = Object.keys(elementsToTranslate).find(key => elementsToTranslate[key] === text);
+                    if (trText) el.textContent = trText;
                 }
             });
-
-            // Navbar'ı kapat
-            if (navbarCollapse.classList.contains("show")) {
-                navbarCollapse.classList.remove("show"); // Açık ise kapat
-            }
-
-            setTimeout(() => {
-                loadingScreen.classList.remove("show");
-            }, 300);
-        }, 300);
+        }
     });
-});
-
-</script>
+  </script>
+  
 <script>
     const images = document.querySelectorAll(".image-wrapper img");
     const dotsContainer = document.getElementById("dots");
