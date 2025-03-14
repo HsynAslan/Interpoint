@@ -54,7 +54,7 @@ opacity: 0.9;
 /* ======================== */
 .navbar {
     box-shadow: 0 2px 4px rgba(0,0,0,.1);
-    background-color: #1a6bbd !important;
+    background: linear-gradient(to right, #02417f, #2a8686) !important;
 }
 
 .navbar .nav-link {

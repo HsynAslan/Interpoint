@@ -115,9 +115,71 @@
             justify-content: center;
             align-items: center;
         }
+        @keyframes bgMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+        .circle-quarter {
+    position: absolute;
+    top: 66px; /* Navbar'ın yüksekliğine göre ayarla */
+    left: 0;
+    width: 300px;
+    height: 300px;
+   
+    border-bottom-right-radius: 300px; /* Sağ alt köşe yuvarlak */
+    
+    z-index: -1; /* Navbarın altında kalması için */
+
+    /* Başlangıç rengi */
+    background: #2a8686;
+
+    /* Animasyonu ekle */
+    animation: colorCycle 80s linear infinite alternate;
+
+}
+/* Renk değiştirme animasyonu */
+@keyframes colorCycle {
+    0% {
+       
+        background: #2a8686;
+    }
+    100% {
+        
+        background: #02417f;
+    }
+}
+@media (max-width: 768px) {
+    .circle-quarter {
+        width: 200px;
+        height: 200px;
+        border-bottom-right-radius: 200px;
+        top: 66px; /* Küçük ekranlarda navbar yüksekliği değişebilir */
+    }
+}
+
+@media (max-width: 480px) {
+    .circle-quarter {
+        width: 160px;
+        height: 160px;
+        border-bottom-right-radius: 160px;
+        top: 66px; /* Mobilde navbar yüksekliği daha az olabilir */
+    }
+}
+
+
     </style>
 </head>
-<body style="background: linear-gradient(135deg, #1a6bbd, #145a8e, #0f4668);">
+<body style="
+    height: 100vh; 
+    margin: 0; 
+    background: linear-gradient(to right, #02417f, #2a8686); 
+    background-size: 200% 100%; 
+    animation: bgMove 20s linear infinite alternate;
+">
 
 
     <!-- Loading Ekranı -->
@@ -125,7 +187,8 @@
         <div class="loading-spinner"></div>
     
     </div>
-    
+
+
      <!-- Navbar -->
      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid">
@@ -160,6 +223,7 @@
             </div>
         </div>
     </nav>
+    <div class="circle-quarter"></div>
 
     <!-- Ana İçerik -->
     <div class="container-fluid main-content">
