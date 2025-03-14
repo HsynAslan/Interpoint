@@ -13,27 +13,87 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="preload" href="./images/arkaplan.mp4" as="video" type="video/mp4">
     <style>
-       /* Video Arka Plan Stili */
-       #video-background {
-            position: fixed;
-            top: 0;
-            left: 0;
+       
+    
+       * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slider-container {
+            position: relative;
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1; /* Videoyu diğer içeriklerin arkasına yerleştir */
-            
+            max-width: 500px; /* Maksimum genişlik sınırı */
+            height: 60vh;
+            overflow: hidden;
+            border-radius: 10px;
+            margin: auto;
+            display: flex;
+            justify-content: flex-end; /* Resimleri sağ tarafa hizala */
+            align-items: center;
+        }
+        .image-wrapper {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        }
+        .image-wrapper img {
+    width: 100%;
+    height: 60vh;
+    object-fit: cover;
+    display: block;
+    opacity: 0;
+    position: absolute;
+    top: -100%; /* Resimler yukarıda başlıyor */
+    left: 0;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.image-wrapper img.active {
+    opacity: 1;
+    transform: translateY(100%);
+}
+
+/* İlk resmin görünür olması için başlangıçta ayarlama yap */
+.image-wrapper img:first-child {
+    opacity: 1;
+    top: 0;
+    transform: translateY(0);
+}
+
+        .dots-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            margin: 5px;
+            background-color: gray;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .dot.active { background-color: black; }
+
+
+
+         /* Responsive Tasarım */
+         @media (max-width: 1000px) {
+            .slider-container {
+                width: 90%; /* Küçük ekranlarda genişliği arttır */
+                height: 35vh; /* Mobil için boyutu küçült */
+            }
+            .image-wrapper img {
+                height: 40vh;
+            }
         }
 
-        /* Video Üzerine Eklenen Siyah Katman */
-        #video-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6); /* Yarı saydam siyah katman */
-            z-index: 0; /* Katmanı videonun üstüne, içeriğin altına yerleştir */
+        @media (max-width: 480px) {
+            .slider-container {
+                height: 35vh;
+            }
+            .image-wrapper img {
+                height: 35vh;
+            }
         }
 
         /* Ana İçerik için Z-index Ayarları */
@@ -101,7 +161,7 @@
 
     <!-- Ana İçerik -->
     <div class="container-fluid main-content">
-        <div class="row h-100">
+        <div class="row h-100" style="align-content: center; justify-content: center; align-items: center;">
             <!-- Sol Taraf -->
             <div class="col-md-6 d-flex flex-column justify-content-center align-items-center text-center">
                 <div class="mb-3" style="display: flex;">
@@ -116,7 +176,21 @@
                 <p class="lead altBaslik">Servis & Yedek Parça</p>
             </div>
             <!-- Sağ Taraf -->
-            <div class="col-md-6 d-flex align-items-center justify-content-center">
+
+
+            <div class="slider-container">
+                <div class="image-wrapper" id="slideBox">
+                    <img src="./images/anasayfa1.jpg" alt="Resim 1" class="active">
+                    <img src="./images/anasayfa2.jpg" alt="Resim 2">
+                    <img src="./images/anasayfa4.jpg" alt="Resim 3">
+                </div>
+            </div>
+            <div class="dots-container" id="dots"></div>
+
+
+
+
+            <!-- <div class="col-md-6 d-flex align-items-center justify-content-center">
                 <div class="row" style="display: flex; align-items: center; justify-content: center; height: 100%;">
                     <div class="col-6" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
                         <img src="./images/anasayfa1.jpg" style="width: 100%; height: 48%; object-fit: cover;" alt="Resim 1" class="opacity09">
@@ -126,7 +200,7 @@
                         <img src="./images/anasayfa2.jpg" style="width: 100%; height: 48%; object-fit: cover;" alt="Resim 3" class="opacity09">
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
    
@@ -229,6 +303,55 @@
 });
 
 </script>
+<script>
+    const images = document.querySelectorAll(".image-wrapper img");
+    const dotsContainer = document.getElementById("dots");
+    let currentIndex = 0;
+    let interval;
+    
+    function createDots() {
+        for (let i = 0; i < images.length; i++) {
+            const dot = document.createElement("div");
+            dot.classList.add("dot");
+            dot.dataset.index = i;
+            dot.addEventListener("click", function() {
+                clearInterval(interval);
+                moveToSlide(i);
+                autoSlide();
+            });
+            dotsContainer.appendChild(dot);
+        }
+        updateDots();
+    }
+    
+    function updateDots() {
+        document.querySelectorAll(".dot").forEach(dot => dot.classList.remove("active"));
+        dotsContainer.children[currentIndex].classList.add("active");
+    }
+    
+    function moveToSlide(index) {
+    images.forEach(img => {
+        img.classList.remove("active");
+        img.style.transform = "translateY(-100%)"; // Eski resim yukarı kayar
+    });
 
+    images[index].classList.add("active");
+    images[index].style.top = "0"; // Yeni resmin görünmesi için top sıfırlanır
+    images[index].style.transform = "translateY(0)"; // Yeni resim aşağı kayarak gelir
+    currentIndex = index;
+    updateDots();
+}
+
+
+    function autoSlide() {
+        interval = setInterval(() => {
+            currentIndex = (currentIndex + 1) % images.length;
+            moveToSlide(currentIndex);
+        }, 3000);
+    }
+    
+    createDots();
+    autoSlide();
+</script>
 </body>
 </html>
