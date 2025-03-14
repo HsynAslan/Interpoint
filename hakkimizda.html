@@ -141,10 +141,10 @@
         
 
         <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                // 🌍 Çeviri verileri
-                const translations = {
-                    tr: {
+         document.addEventListener("DOMContentLoaded", function () {
+    // 🌍 Çeviri verileri
+    const translations = {
+        tr: {
                         navbar: {
                             about: "Hakkımızda",
                             products: "Ürünlerimiz",
@@ -175,62 +175,62 @@
                         ]
                     }
                 };
-            
-                // 🌍 Varsayılan dili al (localStorage'dan oku, yoksa 'tr' ata)
-                let currentLang = localStorage.getItem("lang") || "tr";
-                const langToggle = document.getElementById("lang-toggle");
-                const loadingScreen = document.getElementById("loading-screen");
-            
-                function updateLanguage() {
-                    const langData = translations[currentLang];
-            
-                    // 📌 Navbar güncellemesi
-                    document.querySelector("a[href='/hakkimizda.html']").textContent = langData.navbar.about;
-                    document.querySelector("a[href='/ürünlerimiz.html']").textContent = langData.navbar.products;
-                    document.querySelector("a[href='/iletisim.html']").textContent = langData.navbar.contact;
-            
-                    // 📌 Sayfa başlığı ve içerik güncellemesi
-                    document.querySelector(".baslik").textContent = langData.aboutTitle;
-            
-                    // 📌 Şirket başlığı güncellemesi
-                    document.querySelector(".sirket-adi3").textContent = langData.siteTitle;
-                    document.querySelector(".sirket-adi").textContent = langData.siteTitle;
 
-                    // 📌 Paragrafları güncelle
-                    const paragraphs = document.querySelectorAll(".sag-taraf .metin");
-                    paragraphs.forEach((p, index) => {
-                        p.textContent = langData.aboutText[index] || "";
-                    });
-            
-                    // 📌 Buton metnini güncelle
-                    langToggle.textContent = currentLang === "tr" ? "EN" : "TR";
-                }
-            
-                // 🌍 Buton tıklanınca dili değiştir
-                if (langToggle) {
-                    langToggle.addEventListener("click", function () {
-                        // 🌟 Loading Spinner Göster
-                        loadingScreen.classList.add("show");
-            
-                        setTimeout(() => {
-                            currentLang = currentLang === "tr" ? "en" : "tr";
-                            localStorage.setItem("lang", currentLang); // Yeni dili kaydet
-                            updateLanguage();
-                            document.querySelector(".navbar-collapse").classList.remove("show");
-            
-                            // ⏳ 800ms sonra Loading Spinner'ı Kaldır
-                            setTimeout(() => {
-                                loadingScreen.classList.remove("show");
-                            }, 800);
-                        }, 300);
-                    });
-            
-                    // 🌍 Sayfa yüklendiğinde dili uygula
-                    updateLanguage();
-                    
+    // 🌍 LocalStorage'dan dili al, yoksa 'tr' yap
+    let currentLang = localStorage.getItem("selectedLang") || "tr";
+    const langToggle = document.getElementById("lang-toggle");
+    const loadingScreen = document.getElementById("loading-screen");
 
-                }
-            });
+    function updateLanguage() {
+        const langData = translations[currentLang];
+
+        // 📌 Navbar güncellemesi
+        let aboutLink = document.querySelector("a[href='/hakkimizda.html']");
+        let productsLink = document.querySelector("a[href='/ürünlerimiz.html']");
+        let contactLink = document.querySelector("a[href='/iletisim.html']");
+
+        if (aboutLink) aboutLink.textContent = langData.navbar.about;
+        if (productsLink) productsLink.textContent = langData.navbar.products;
+        if (contactLink) contactLink.textContent = langData.navbar.contact;
+
+        // 📌 Sayfa başlığı ve içerik güncellemesi
+        let baslik = document.querySelector(".baslik");
+        if (baslik) baslik.textContent = langData.aboutTitle;
+
+        // 📌 Şirket başlığı güncellemesi
+        document.querySelectorAll(".sirket-adi, .sirket-adi3").forEach(el => {
+            el.textContent = langData.siteTitle;
+        });
+
+        // 📌 Paragrafları güncelle
+        const paragraphs = document.querySelectorAll(".sag-taraf .metin");
+        paragraphs.forEach((p, index) => {
+            p.textContent = langData.aboutText[index] || "";
+        });
+
+        // 📌 Buton metnini güncelle
+        if (langToggle) langToggle.textContent = currentLang === "tr" ? "EN" : "TR";
+    }
+
+    // 🌍 Buton tıklanınca dili değiştir
+    if (langToggle) {
+        langToggle.addEventListener("click", function () {
+            loadingScreen.classList.add("show");
+
+            setTimeout(() => {
+                currentLang = currentLang === "tr" ? "en" : "tr";
+                localStorage.setItem("selectedLang", currentLang); // Yeni dili kaydet
+                
+                updateLanguage(); // Sayfa içeriğini güncelle
+                loadingScreen.classList.remove("show");
+            }, 300);
+        });
+    }
+
+    // 🌍 Sayfa yüklendiğinde localStorage'daki dili uygula
+    updateLanguage();
+});
+
             </script>
             
             
