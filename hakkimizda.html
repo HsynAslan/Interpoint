@@ -49,14 +49,16 @@
         <!-- Navbar Menü Öğeleri -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto" style="display: flex; flex-direction: row-reverse;">
+
                 <li class="nav-item" style="margin-left: 4vh;">
-                    <a class="nav-link" href="/iletisim.html">İletişim</a>
+                    <a class="nav-link active" aria-current="page" href="/hakkimizda.html">Hakkımızda</a>
                 </li>
+               
                 <li class="nav-item" style="margin-left: 4vh;">
                     <a class="nav-link" href="/ürünlerimiz.html">Ürünlerimiz</a>
                 </li>
                 <li class="nav-item" style="margin-left: 4vh;">
-                    <a class="nav-link active" aria-current="page" href="/hakkimizda.html">Hakkımızda</a>
+                    <a class="nav-link" href="/iletisim.html">İletişim</a>
                 </li>
                 <li class="nav-item" style="margin-left: 4vh;">
                     <button id="lang-toggle" class="btn btn-primary">EN</button>
@@ -174,8 +176,8 @@
                     }
                 };
             
-                // 🌍 Varsayılan dili al (localStorage'dan ya da TR yap)
-                let currentLang =  "tr";
+                // 🌍 Varsayılan dili al (localStorage'dan oku, yoksa 'tr' ata)
+                let currentLang = localStorage.getItem("lang") || "tr";
                 const langToggle = document.getElementById("lang-toggle");
                 const loadingScreen = document.getElementById("loading-screen");
             
@@ -192,7 +194,8 @@
             
                     // 📌 Şirket başlığı güncellemesi
                     document.querySelector(".sirket-adi3").textContent = langData.siteTitle;
-            
+                    document.querySelector(".sirket-adi").textContent = langData.siteTitle;
+
                     // 📌 Paragrafları güncelle
                     const paragraphs = document.querySelectorAll(".sag-taraf .metin");
                     paragraphs.forEach((p, index) => {
@@ -213,6 +216,7 @@
                             currentLang = currentLang === "tr" ? "en" : "tr";
                             localStorage.setItem("lang", currentLang); // Yeni dili kaydet
                             updateLanguage();
+                            document.querySelector(".navbar-collapse").classList.remove("show");
             
                             // ⏳ 800ms sonra Loading Spinner'ı Kaldır
                             setTimeout(() => {
@@ -223,9 +227,12 @@
             
                     // 🌍 Sayfa yüklendiğinde dili uygula
                     updateLanguage();
+                    
+
                 }
             });
             </script>
+            
             
             
         
