@@ -47,13 +47,14 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto" style="display: flex; flex-direction: row-reverse;">
                 <li class="nav-item" style="margin-left: 4vh;">
-                    <a class="nav-link active" href="/iletisim.html">İletişim</a>
+                    <a class="nav-link" aria-current="page" href="/hakkimizda.html">Hakkımızda</a>
                 </li>
+                
                 <li class="nav-item" style="margin-left: 4vh;">
                     <a class="nav-link" href="/ürünlerimiz.html">Ürünlerimiz</a>
                 </li>
                 <li class="nav-item" style="margin-left: 4vh;">
-                    <a class="nav-link" aria-current="page" href="/hakkimizda.html">Hakkımızda</a>
+                    <a class="nav-link active" href="/iletisim.html">İletişim</a>
                 </li>
                 <li class="nav-item" style="margin-left: 4vh;">
                     <button id="lang-toggle" class="btn btn-primary">EN</button>
@@ -100,16 +101,16 @@
             <!-- Orta Kısım -->
             <div id="footer-orta" class="col-md-4 text-center column centerFlex">
                 <h5>Ali Osman Demir</h5>
-                <br>
+                <i>Yönetici</i>
                 <p><a href="tel:+905424467575" class="footer-link">📞 +90 542 446 75 75</a></p>
-                <p><a href="mailto:alidemir.mtd@gmail.com?subject=Merhaba&body=Size ulaşmak istiyorum." class="footer-link">📧 alidemir.mtd@gmail.com</a></p>
+                <p><a href="mailto:info@interpointcompressor.com?subject=Merhaba&body=Size ulaşmak istiyorum." class="footer-link">📧 info@interpointcompressor.com</a></p>
             </div>
             <!-- Sağ Kısım -->
             <div id="footer-sag" class="col-md-4 text-end column text-center centerFlex">
                 <h5>Süleyman Can Büber</h5>
                 <i>Teknisyen</i>
                 <p><a href="tel:+905401502002" class="footer-link">📞 +90 540 150 20 02</a></p>
-                <p><a href="mailto:bubersuleymancan@gmail.com?subject=Merhaba&body=Size ulaşmak istiyorum." class="footer-link">📧 bubersuleymancan@gmail.com</a></p>
+                <p><a href="mailto:info@interpointcompressor.com?subject=Merhaba&body=Size ulaşmak istiyorum." class="footer-link">📧 info@interpointcompressor.com</a></p>
                 
             </div>
         </div>
@@ -170,5 +171,95 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./translation.js"></script>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const langToggle = document.getElementById("lang-toggle");
+            const loadingScreen = document.getElementById("loading-screen");
+            const navbarCollapse = document.querySelector(".navbar-collapse");
+    
+            const elementsToTranslate = {
+                "İletişim": "Contact",
+                "Ürünlerimiz": "Our Products",
+                "Hakkımızda": "About Us",
+                "Interpoint Kompresör": "Interpoint Compressor",
+                "Güvenilir Hizmet.": "Reliable Service.",
+                "Mükemmel Çözümler.": "Perfect Solutions.",
+                "Servis & Yedek Parça": "Service & Spare Parts",
+                "INTERPOINT": "INTERPOINT",
+                "KOMPRESOR": "COMPRESSOR",
+                "İLETİŞİM": "CONTACT",
+                "Her türlü soru ve görüşleriniz için bizimle iletişime geçebilirsiniz.": "You can contact us for any questions and opinions.",
+                "📍 Yavuz Selim Mahallesi Reşadiye Sokak 8/7 Çubuk / Ankara": "📍 Yavuz Selim Neighborhood, Reşadiye Street 8/7, Çubuk / Ankara",
+                "Ali Osman Demir": "Ali Osman Demir",
+                "📞 +90 542 446 75 75": "📞 +90 542 446 75 75",
+                "📧 info@interpointcompressor.com": "📧 info@interpointcompressor.com",
+                "Süleyman Can Büber": "Süleyman Can Büber",
+                "Teknisyen": "Technician",
+                "Yönetici": "Manager",
+                "📞 +90 540 150 20 02": "📞 +90 540 150 20 02"
+            };
+    
+            function isLocalStorageAvailable() {
+                try {
+                    localStorage.setItem("test", "test");
+                    localStorage.removeItem("test");
+                    return true;
+                } catch (e) {
+                    return false;
+                }
+            }
+    
+            function getLang() {
+                if (isLocalStorageAvailable()) {
+                    return localStorage.getItem("selectedLang") || "tr";
+                } else {
+                    return document.cookie.replace(/(?:(?:^|.*;\s*)selectedLang\s*=\s*([^;]*).*$)|^.*$/, "$1") || "tr";
+                }
+            }
+    
+            function setLang(lang) {
+                if (isLocalStorageAvailable()) {
+                    localStorage.setItem("selectedLang", lang);
+                } else {
+                    document.cookie = `selectedLang=${lang}; path=/; max-age=31536000`; // 1 yıl sakla
+                }
+            }
+    
+            let currentLang = getLang();
+            updateLanguage(currentLang);
+    
+            langToggle.addEventListener("click", function () {
+                loadingScreen.classList.add("show");
+    
+                setTimeout(() => {
+                    currentLang = currentLang === "tr" ? "en" : "tr";
+                    setLang(currentLang);
+                    updateLanguage(currentLang);
+    
+                    if (navbarCollapse.classList.contains("show")) {
+                        navbarCollapse.classList.remove("show");
+                    }
+    
+                    setTimeout(() => {
+                        loadingScreen.classList.remove("show");
+                    }, 300);
+                }, 300);
+            });
+    
+            function updateLanguage(lang) {
+                langToggle.textContent = lang === "tr" ? "EN" : "TR";
+    
+                document.querySelectorAll(".nav-link, .navbar-brand span, .altBaslik, .sirketAd, #interpoint-title, #iletisim-baslik, #iletisim-aciklama, #footer-sol p, #footer-orta h5, #footer-orta a[href^='tel:'], #footer-orta a[href^='mailto:'], #footer-orta i, #footer-sag h5, #footer-sag i, #footer-sag a[href^='tel:'], #footer-sag a[href^='mailto:']").forEach(el => {
+                    let text = el.textContent.trim();
+                    if (lang === "en" && elementsToTranslate[text]) {
+                        el.textContent = elementsToTranslate[text];
+                    } else if (lang === "tr") {
+                        let trText = Object.keys(elementsToTranslate).find(key => elementsToTranslate[key] === text);
+                        if (trText) el.textContent = trText;
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>

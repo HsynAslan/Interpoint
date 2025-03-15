@@ -176,10 +176,39 @@
                     }
                 };
 
-    // 🌍 LocalStorage'dan dili al, yoksa 'tr' yap
-    let currentLang = localStorage.getItem("selectedLang") || "tr";
-    const langToggle = document.getElementById("lang-toggle");
+                const langToggle = document.getElementById("lang-toggle");
     const loadingScreen = document.getElementById("loading-screen");
+
+    // 🌍 LocalStorage kontrolü
+    function isLocalStorageAvailable() {
+        try {
+            localStorage.setItem("test", "test");
+            localStorage.removeItem("test");
+            return true;
+        } catch (e) {
+            return false;
+        }
+    }
+
+    // 🌍 Dil bilgisini al
+    function getLang() {
+        if (isLocalStorageAvailable()) {
+            return localStorage.getItem("selectedLang") || "tr";
+        } else {
+            return document.cookie.replace(/(?:(?:^|.*;\s*)selectedLang\s*=\s*([^;]*).*$)|^.*$/, "$1") || "tr";
+        }
+    }
+
+    // 🌍 Dil bilgisini kaydet
+    function setLang(lang) {
+        if (isLocalStorageAvailable()) {
+            localStorage.setItem("selectedLang", lang);
+        } else {
+            document.cookie = `selectedLang=${lang}; path=/; max-age=31536000`; // 1 yıl sakla
+        }
+    }
+
+    let currentLang = getLang();
 
     function updateLanguage() {
         const langData = translations[currentLang];
@@ -219,7 +248,7 @@
 
             setTimeout(() => {
                 currentLang = currentLang === "tr" ? "en" : "tr";
-                localStorage.setItem("selectedLang", currentLang); // Yeni dili kaydet
+                setLang(currentLang); // Yeni dili kaydet
                 
                 updateLanguage(); // Sayfa içeriğini güncelle
                 loadingScreen.classList.remove("show");
@@ -227,7 +256,7 @@
         });
     }
 
-    // 🌍 Sayfa yüklendiğinde localStorage'daki dili uygula
+    // 🌍 Sayfa yüklendiğinde localStorage veya cookie'den dili uygula
     updateLanguage();
 });
 
