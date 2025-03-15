@@ -831,6 +831,7 @@ opacity: 0.9;
 
 /* Sayfa Başlığı */
 .page-header {
+    margin-bottom: 1rem;
     margin-top: 5rem;
     position: relative;
     height: 100px;
@@ -838,7 +839,7 @@ opacity: 0.9;
     align-items: center;
     justify-content: flex-start;
     padding-left: 10%;
-    background: linear-gradient(to right, #007bff15, #0056b3);
+    background: linear-gradient(to right, #007bff15, #2a8686);
     color: white;
 }
 
@@ -891,7 +892,7 @@ opacity: 0.9;
     max-width: 1200px;
     margin: 30px auto;
     padding: 40px;
-    background: #f8f9fa;
+    background: #f8f9fa80;
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -958,7 +959,8 @@ opacity: 0.9;
 }
 
 .valve-info h2 {
-    color: #357abd;
+    color: #2a8686;
+    font-weight: bold;
     font-size: 1.5rem;
     margin-bottom: 10px;
 }
@@ -972,7 +974,7 @@ opacity: 0.9;
     background: white;
     padding: 10px;
     margin: 5px 0;
-    border-left: 5px solid #357abd;
+    border-left: 5px solid #2a8686;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     font-size: 1rem;
 }
