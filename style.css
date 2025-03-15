@@ -558,7 +558,8 @@ opacity: 0.9;
 /* 🔹 Footer Genel Stil */
 /* ======================== */
 #footer {
-    background-color: #1a6bbd;
+    /* background-color: #1a6bbd; */
+    background: linear-gradient(to right, #02417f, #2a8686) !important;
     color: white;
     padding: 20px 0;
     width: 100%;
