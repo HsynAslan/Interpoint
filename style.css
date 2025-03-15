@@ -184,10 +184,17 @@ opacity: 0.9;
 /* 🔹 Hakkımızda Bölümü */
 /* ======================== */
 .hakkimizda {
-    padding: 60px;
-    background-color: white !important;
-    background: none;
+    padding-top: 60px;
+    
 }
+
+@media (max-width: 768px) {
+    .hakkimizda{
+       padding-right: 4vh;
+       padding-left: 4vh;
+    }
+}
+
 
 .sol-taraf {
     padding-top: 20px;
@@ -1007,3 +1014,153 @@ opacity: 0.9;
 
 
 
+
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animated-text {
+    
+    
+    animation: slideInLeft 1s ease-out forwards;
+}
+
+
+@keyframes slideInLeftLong {
+    from {
+        opacity: 0;
+        transform: translateX(-400%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animated-textLong {
+    
+    
+    animation: slideInLeftLong 1s ease-out forwards;
+}
+
+@keyframes bgMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.circle-quarter {
+    position: absolute;
+    top: 66px; /* Navbar'ın yüksekliğine göre ayarla */
+    left: 0;
+    width: 300px;
+    height: 300px;
+   
+    border-bottom-right-radius: 300px; /* Sağ alt köşe yuvarlak */
+    
+    z-index: -1; /* Navbarın altında kalması için */
+
+    /* Başlangıç rengi */
+    background: #2a8686;
+
+    /* Animasyonu ekle */
+    animation: colorCycle 80s linear infinite alternate;
+
+}
+
+/* Renk değiştirme animasyonu */
+@keyframes colorCycle {
+0% {
+
+background: #2a8686;
+}
+100% {
+
+background: #02417f;
+}
+}
+@media (max-width: 768px) {
+.circle-quarter {
+width: 200px;
+height: 200px;
+border-bottom-right-radius: 200px;
+top: 66px; /* Küçük ekranlarda navbar yüksekliği değişebilir */
+}
+}
+
+@media (max-width: 480px) {
+.circle-quarter {
+width: 160px;
+height: 160px;
+border-bottom-right-radius: 160px;
+top: 66px; /* Mobilde navbar yüksekliği daha az olabilir */
+}
+}
+/* ///////////////////// */
+
+.circle-quarter2 {
+position: absolute;
+bottom:0px;
+right:0px;
+width: 300px;
+height: 300px;
+
+border-top-left-radius: 300px; /* Sağ alt köşe yuvarlak */
+
+z-index: -1; /* Navbarın altında kalması için */
+
+/* Başlangıç rengi */
+background: #2a8686;
+
+/* Animasyonu ekle */
+animation: colorCycle2 80s linear infinite alternate;
+
+}
+/* Renk değiştirme animasyonu */
+@keyframes colorCycle2 {
+0% {
+
+background: #02417f;
+}
+100% {
+
+background: #2a8686;
+}
+}
+@media (max-width: 768px) {
+.circle-quarter2 {
+width: 200px;
+height: 200px;
+border-top-left-radius: 200px;
+
+}
+}
+
+@media (max-width: 480px) {
+.circle-quarter2 {
+width: 160px;
+height: 160px;
+border-top-left-radius: 160px;
+
+}
+}
+
+.beyazYazi{
+    color: white !important ;
+}
+.beyazYaziBaslik{
+    color: rgb(202, 240, 210) !important;
+    margin-top: 2vh;
+    border-bottom: 2px solid rgb(202, 240, 210);
+}
