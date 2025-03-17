@@ -109,7 +109,7 @@ opacity: 0.9;
 }
 
 /* Navbar için Mobil ve Masaüstü */
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
     .navbar-nav {
                 display: flex !important;
                 flex-direction: column !important;
@@ -153,7 +153,7 @@ opacity: 0.9;
     }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
     body, html {
         overflow: hidden; /* Scroll'u kaldır */
     }
@@ -1166,4 +1166,21 @@ border-top-left-radius: 160px;
     color: rgb(202, 240, 210) !important;
     margin-top: 2vh;
     border-bottom: 2px solid rgb(202, 240, 210);
+}
+
+
+/* Sadece 768 piksel için özel stil */
+@media (min-width: 768px) and (max-width: 768px) {
+    .navbar-toggler {
+        display: none !important; /* Hamburger menüyü gizle */
+    }
+
+    .navbar-nav {
+        flex-direction: row !important; /* Navbar listesini yatay yap */
+        justify-content: flex-end; /* Sağa hizala */
+    }
+
+    .collapse.navbar-collapse {
+        display: flex !important; /* Navbar listesini göster */
+    }
 }
