@@ -23,7 +23,11 @@
         }
     </style>
 </head>
-<body style="overflow-y: auto !important;">
+<body style="overflow-y: auto !important; height: 100vh; 
+margin: 0; 
+background: linear-gradient(to right, #02417f2d, #2a8686); 
+background-size: 200% 100%; 
+animation: bgMove 20s linear infinite alternate;">
     
 <!-- Loading Screen -->
 <div id="loading-screen">
@@ -77,14 +81,15 @@
 
   
     
-
+    <div class="carousel-container2" id="suctionImageContainer">
+        <img id="suctionValveImage" src="./images/5.png" alt="Suction Valve">
+    </div>
 <!-- İçerik Alanı -->
 <section class="valve-container">
+    
     <!-- Suction Valve İçeriği -->
     <div class="valve-content" id="suctionValveContent">
-        <div class="carousel-container2" id="suctionImageContainer">
-            <img id="suctionValveImage" src="./images/5.png" alt="Suction Valve">
-        </div>
+       
 
         <div class="valve-info" id="suctionValveInfo">
             <h2>🔹 Sealing Ring (Sızdırmazlık Segmanları)</h2>
@@ -111,7 +116,7 @@
  
 </section>
 
-
+<div class="circle-quarter2"></div>
 
 <script>
 
