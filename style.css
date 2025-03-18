@@ -1184,3 +1184,10 @@ border-top-left-radius: 160px;
         display: flex !important; /* Navbar listesini göster */
     }
 }
+
+
+@media (max-width: 768px) {
+    body {
+        overflow-y: auto !important; /* Dikey scroll bar'ı etkinleştir */
+    }
+}
