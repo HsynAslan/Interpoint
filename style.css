@@ -649,7 +649,7 @@ opacity: 0.9;
         flex-wrap: wrap;
         align-content: space-around;
         justify-content: center;
-        align-items: flex-start;
+        align-items: center;
 }
 
 
@@ -1186,8 +1186,14 @@ border-top-left-radius: 160px;
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 2800px) {
     body {
         overflow-y: auto !important; /* Dikey scroll bar'ı etkinleştir */
     }
+}
+
+.hakkimizdaBackground{
+    background: #f8f9fa40;
+    border-radius: 20px;
+    margin: 20px;
 }
