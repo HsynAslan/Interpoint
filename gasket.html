@@ -119,7 +119,7 @@ animation: bgMove 20s linear infinite alternate;">
                     <li> <strong>Titreşimleri ve mekanik zorlanmaları absorbe ederek sistemin daha stabil çalışmasını sağlar.</strong></li>
                 </ul>
                 <br>
-                <li>
+                <li id="translate6">
                     Yüksek kaliteli malzemelerden üretilen <b> O-Ring ve gasketlerimiz</b>, ağır çalışma koşullarına dayanıklı olup enerji tasarrufu ve operasyonel güvenlik açısından büyük önem taşır. <b> Kompresörün verimli ve uzun ömürlü çalışması için bu sızdırmazlık elemanları periyodik bakımlarda değiştirilmelidir.</b>
                 </li>
             </ul>
@@ -211,6 +211,155 @@ document.addEventListener("DOMContentLoaded", function () {
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const langToggle = document.getElementById("lang-toggle");
+            const loadingScreen = document.getElementById("loading-screen");
+            const navbarCollapse = document.querySelector(".navbar-collapse");
+    
+            // Çeviri verileri
+            const elementsToTranslate = {
+                "İletişim": "Contact",
+                "Ürünlerimiz": "Our Products",
+                "Hakkımızda": "About Us",
+                "Interpoint Kompresör": "Interpoint Compressor",
+                "O-Ring ve Gasket": "O-Ring and Gasket",
+                "O-Ring ve Gasket": "O-Ring and Gasket",
+                "O-Ring ve gasketler, kompresör sistemlerinde sızdırmazlığı sağlamak ve kaçakları önlemek amacıyla kullanılan kritik bileşenlerdir. Yüksek basınç ve sıcaklık koşullarına dayanıklı bu parçalar, kompresörün güvenli ve verimli çalışmasını destekler.": 
+                "O-Rings and gaskets are critical components used in compressor systems to ensure sealing and prevent leaks. These parts, resistant to high pressure and temperature conditions, support the safe and efficient operation of the compressor.",
+                "🔹 O-Ring": "🔹 O-Ring",
+                "O-Ring, elastomer (kauçuk) malzemeden üretilen, genellikle dairesel kesitli bir sızdırmazlık elemanıdır.": 
+                "O-Ring is a sealing element, usually made of elastomer (rubber) material, with a circular cross-section.",
+                "Görevleri": "Tasks",
+                "Basınçlı hava ve gaz kaçaklarını önler.": "Prevents leaks of compressed air and gas.",
+                "Esnek yapısı sayesinde yüzeyler arasındaki boşlukları doldurur.": "Fills gaps between surfaces due to its flexible structure.",
+                "Uzun ömürlüdür ve düşük bakım gerektirir.": "It is long-lasting and requires low maintenance.",
+                "Kimyasal maddelere ve aşınmaya karşı dirençlidir.": "Resistant to chemicals and wear.",
+                "🔹 Gasket (Conta)": "🔹 Gasket (Seal)",
+                "Gasketler, genellikle kompresör parçalarının birleşim noktalarında kullanılan, sızdırmazlık sağlayan düz ve esnek contalardır.": 
+                "Gaskets are flat and flexible seals used at the junctions of compressor parts to provide sealing.",
+                "İki yüzey arasındaki boşlukları doldurarak hava, gaz veya sıvı sızıntılarını önler.": 
+                "Prevents air, gas, or liquid leaks by filling gaps between two surfaces.",
+                "Farklı malzeme seçenekleri ile yüksek basınç ve sıcaklığa dayanıklıdır.": 
+                "Resistant to high pressure and temperature with different material options.",
+                "Titreşimleri ve mekanik zorlanmaları absorbe ederek sistemin daha stabil çalışmasını sağlar.": 
+                "Ensures more stable system operation by absorbing vibrations and mechanical stresses.",
+                "Yüksek kaliteli malzemelerden üretilen O-Ring ve gasketlerimiz, ağır çalışma koşullarına dayanıklı olup enerji tasarrufu ve operasyonel güvenlik açısından büyük önem taşır. Kompresörün verimli ve uzun ömürlü çalışması için bu sızdırmazlık elemanları periyodik bakımlarda değiştirilmelidir.": 
+                "Our high-quality O-Rings and gaskets are resistant to harsh operating conditions and play a crucial role in energy efficiency and operational safety. To ensure efficient and long-lasting compressor operation, these sealing elements should be replaced during periodic maintenance."
+            };
+    
+            const translations = {
+                tr: {
+                    "translate1": "O-Ring ve gasketler, kompresör sistemlerinde sızdırmazlığı sağlamak ve kaçakları önlemek amacıyla kullanılan kritik bileşenlerdir. Yüksek basınç ve sıcaklık koşullarına dayanıklı bu parçalar, kompresörün güvenli ve verimli çalışmasını destekler.",
+                    "translate2": "O-Ring, elastomer (kauçuk) malzemeden üretilen, genellikle dairesel kesitli bir sızdırmazlık elemanıdır.",
+                    "translate3_1": "<strong>Basınçlı hava ve gaz kaçaklarını önler.</strong>",
+                    "translate3_2": "<strong>Esnek yapısı sayesinde yüzeyler arasındaki boşlukları doldurur.</strong>",
+                    "translate3_3": "<strong>Uzun ömürlüdür ve düşük bakım gerektirir.</strong>",
+                    "translate3_4": "<strong>Kimyasal maddelere ve aşınmaya karşı dirençlidir.</strong>",
+                    "translate4": "Gasketler, genellikle kompresör parçalarının birleşim noktalarında kullanılan, sızdırmazlık sağlayan düz ve esnek contalardır.",
+                    "translate5_1": "<strong>İki yüzey arasındaki boşlukları doldurarak hava, gaz veya sıvı sızıntılarını önler.</strong>",
+                    "translate5_2": "<strong>Farklı malzeme seçenekleri ile yüksek basınç ve sıcaklığa dayanıklıdır.</strong>",
+                    "translate5_3": "<strong>Titreşimleri ve mekanik zorlanmaları absorbe ederek sistemin daha stabil çalışmasını sağlar.</strong>",
+                    "translate6": "Yüksek kaliteli malzemelerden üretilen O-Ring ve gasketlerimiz, ağır çalışma koşullarına dayanıklı olup enerji tasarrufu ve operasyonel güvenlik açısından büyük önem taşır. <b> Kompresörün verimli ve uzun ömürlü çalışması için bu sızdırmazlık elemanları periyodik bakımlarda değiştirilmelidir.</b>"
+                },
+                en: {
+                    "translate1": "O-Rings and gaskets are critical components used in compressor systems to ensure sealing and prevent leaks. These parts, resistant to high pressure and temperature conditions, support the safe and efficient operation of the compressor.",
+                    "translate2": "O-Ring is a sealing element, usually made of elastomer (rubber) material, with a circular cross-section.",
+                    "translate3_1": "<strong>Prevents leaks of compressed air and gas.</strong>",
+                    "translate3_2": "<strong>Fills gaps between surfaces due to its flexible structure.</strong>",
+                    "translate3_3": "<strong>It is long-lasting and requires low maintenance.</strong>",
+                    "translate3_4": "<strong>Resistant to chemicals and wear.</strong>",
+                    "translate4": "Gaskets are flat and flexible seals used at the junctions of compressor parts to provide sealing.",
+                    "translate5_1": "<strong>Prevents air, gas, or liquid leaks by filling gaps between two surfaces.</strong>",
+                    "translate5_2": "<strong>Resistant to high pressure and temperature with different material options.</strong>",
+                    "translate5_3": "<strong>Ensures more stable system operation by absorbing vibrations and mechanical stresses.</strong>",
+                    "translate6": "Our high-quality O-Rings and gaskets are resistant to harsh operating conditions and play a crucial role in energy efficiency and operational safety. <b> To ensure efficient and long-lasting compressor operation, these sealing elements should be replaced during periodic maintenance.</b>"
+                }
+            };
+    
+            function isLocalStorageAvailable() {
+                try {
+                    localStorage.setItem("test", "test");
+                    localStorage.removeItem("test");
+                    return true;
+                } catch (e) {
+                    return false;
+                }
+            }
+    
+            function getLang() {
+                if (isLocalStorageAvailable()) {
+                    return localStorage.getItem("selectedLang") || "tr";
+                } else {
+                    return document.cookie.replace(/(?:(?:^|.*;\s*)selectedLang\s*=\s*([^;]*).*$)|^.*$/, "$1") || "tr";
+                }
+            }
+    
+            function setLang(lang) {
+                if (isLocalStorageAvailable()) {
+                    localStorage.setItem("selectedLang", lang);
+                } else {
+                    document.cookie = `selectedLang=${lang}; path=/; max-age=31536000`;
+                }
+            }
+    
+            let currentLang = getLang();
+            updateLanguage(currentLang);
+    
+            langToggle.addEventListener("click", function () {
+                loadingScreen.classList.add("show"); // Loading ekranını göster
+                
+                setTimeout(() => {
+                    currentLang = currentLang === "tr" ? "en" : "tr";
+                    setLang(currentLang);
+                    updateLanguage(currentLang);
+    
+                    if (navbarCollapse.classList.contains("show")) {
+                        navbarCollapse.classList.remove("show");
+                    }
+    
+                    setTimeout(() => {
+                        loadingScreen.classList.remove("show"); // Loading ekranını gizle
+                    }, 300);
+                }, 300);
+            });
+    
+            function updateLanguage(lang) {
+    langToggle.textContent = lang === "tr" ? "EN" : "TR";
+
+    // Navbar metinlerini çevir (href ve class özelliklerini koru)
+    document.querySelectorAll(".nav-link, .navbar-brand span").forEach(el => {
+        let text = el.textContent.trim();
+        if (lang === "en" && elementsToTranslate[text]) {
+            el.textContent = elementsToTranslate[text]; // Sadece metni güncelle
+        } else if (lang === "tr") {
+            let trText = Object.keys(elementsToTranslate).find(key => elementsToTranslate[key] === text);
+            if (trText) el.textContent = trText; // Sadece metni güncelle
+        }
+    });
+
+    // Diğer genel metin çevirisi
+    document.querySelectorAll(".baslik, h2, li").forEach(el => {
+        let text = el.textContent.trim();
+        if (lang === "en" && elementsToTranslate[text]) {
+            el.textContent = elementsToTranslate[text];
+        } else if (lang === "tr") {
+            let trText = Object.keys(elementsToTranslate).find(key => elementsToTranslate[key] === text);
+            if (trText) el.textContent = trText;
+        }
+    });
+
+    // translate1, translate2, translate3_1, translate3_2, translate3_3, translate3_4, translate4, translate5_1, translate5_2, translate5_3, translate6 güncellenmesi
+    const translateElements = document.querySelectorAll("li, h2, .baslik");
+    translateElements.forEach((el) => {
+        let id = el.getAttribute("id");
+        if (id && translations[lang][id]) {
+            el.innerHTML = translations[lang][id];
+        }
+    });
+}
+        });
+    </script>
 
 </body>
 </html>
