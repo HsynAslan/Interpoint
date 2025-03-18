@@ -168,18 +168,18 @@ animation: bgMove 20s linear infinite alternate;">
         <div class="valve-info" id="suctionValveInfo">
             <h2>🔹 Compressor Rings  (Kompresör Segmanları)</h2>
             <ul>
-                <li>
+                <li id="translate1">
                     Compressor Rings, pistonlu kompresörlerde silindir duvarı ile piston arasındaki sızdırmazlığı sağlayan kritik bileşenlerdir. Bu parçalar, kompresörün performansını, verimliliğini ve dayanıklılığını doğrudan etkileyerek sistemin uzun ömürlü çalışmasını sağlar.
                 </li>
                 <br>
-                <h2> Compressor Rings Görevleri</h2>
-                <ul>
-                    <li> <strong>Sızdırmazlık Sağlama:</strong> Gaz veya havanın silindir içinde kaçak yapmasını önleyerek sıkıştırma verimliliğini artırır.</li>
-                    <li> <strong>Aşınmaya Karşı Koruma:</strong> Silindir yüzeyi ve piston arasında doğrudan temasın önüne geçerek aşınmayı azaltır.</li>
-                    <li> <strong>Isı Dağılımı:</strong> Sıkıştırma sırasında oluşan ısıyı dağıtarak sistemin aşırı ısınmasını önler.</li>
+                <h2 id="translate2"> Compressor Rings Görevleri</h2>
+                <ul id="translate3">
+                    <li id="translate3_1"> <strong>Sızdırmazlık Sağlama:</strong> Gaz veya havanın silindir içinde kaçak yapmasını önleyerek sıkıştırma verimliliğini artırır.</li>
+                    <li id="translate3_2"> <strong>Aşınmaya Karşı Koruma:</strong> Silindir yüzeyi ve piston arasında doğrudan temasın önüne geçerek aşınmayı azaltır.</li>
+                    <li id="translate3_3"> <strong>Isı Dağılımı:</strong> Sıkıştırma sırasında oluşan ısıyı dağıtarak sistemin aşırı ısınmasını önler.</li>
                 </ul>
                 <br>
-                <li>
+                <li id="translate6">
                     Yüksek kaliteli malzemelerden üretilen kompresör segmanlarımız, ağır çalışma koşullarına dayanıklı olup enerji tasarrufu ve operasyonel güvenlik açısından büyük önem taşır. <b> Kompresörün verimli ve uzun ömürlü çalışması için segmanlar periyodik bakımlarda değiştirilmelidir.</b>
                 </li>
             </ul>
@@ -337,6 +337,131 @@ document.addEventListener("DOMContentLoaded", function () {
     
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    
+    
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const langToggle = document.getElementById("lang-toggle");
+    const loadingScreen = document.getElementById("loading-screen");
+    const navbarCollapse = document.querySelector(".navbar-collapse");
+
+    // Çeviri verileri
+    const elementsToTranslate = {
+        "İletişim": "Contact",
+        "Ürünlerimiz": "Our Products",
+        "Hakkımızda": "About Us",
+        "Interpoint Kompresör": "Interpoint Compressor",
+        "Compressor Rings": "Compressor Rings",
+        "🔹 Compressor Rings  (Kompresör Segmanları)": "🔹 Compressor Rings",
+        "Compressor Rings Görevleri": "Compressor Rings Tasks",
+        "Compressor Rings, pistonlu kompresörlerde silindir duvarı ile piston arasındaki sızdırmazlığı sağlayan kritik bileşenlerdir. Bu parçalar, kompresörün performansını, verimliliğini ve dayanıklılığını doğrudan etkileyerek sistemin uzun ömürlü çalışmasını sağlar.": 
+        "Compressor Rings are critical components in piston compressors that ensure sealing between the cylinder wall and the piston. These parts directly affect the compressor's performance, efficiency, and durability, ensuring long-term operation.",
+        "Sızdırmazlık Sağlama:": "Sealing Function:",
+        "Gaz veya havanın silindir içinde kaçak yapmasını önleyerek sıkıştırma verimliliğini artırır.": "Prevents gas or air leakage within the cylinder, enhancing compression efficiency.",
+        "Aşınmaya Karşı Koruma:": "Wear Protection:",
+        "Silindir yüzeyi ve piston arasında doğrudan temasın önüne geçerek aşınmayı azaltır.": "Reduces wear by preventing direct contact between the cylinder surface and the piston.",
+        "Isı Dağılımı:": "Heat Distribution:",
+        "Sıkıştırma sırasında oluşan ısıyı dağıtarak sistemin aşırı ısınmasını önler.": "Distributes heat generated during compression, preventing system overheating."
+    };
+
+    const translations = {
+        tr: {
+            "translate1": "Compressor Rings, pistonlu kompresörlerde silindir duvarı ile piston arasındaki sızdırmazlığı sağlayan kritik bileşenlerdir. Bu parçalar, kompresörün performansını, verimliliğini ve dayanıklılığını doğrudan etkileyerek sistemin uzun ömürlü çalışmasını sağlar.",
+            "translate3_1": "<strong>Sızdırmazlık Sağlama:</strong> Gaz veya havanın silindir içinde kaçak yapmasını önleyerek sıkıştırma verimliliğini artırır.",
+            "translate3_2": "<strong>Aşınmaya Karşı Koruma:</strong> Silindir yüzeyi ve piston arasında doğrudan temasın önüne geçerek aşınmayı azaltır.",
+            "translate3_3": "<strong>Isı Dağılımı:</strong> Sıkıştırma sırasında oluşan ısıyı dağıtarak sistemin aşırı ısınmasını önler.",
+            "translate6": "Yüksek kaliteli malzemelerden üretilen kompresör segmanlarımız, ağır çalışma koşullarına dayanıklı olup enerji tasarrufu ve operasyonel güvenlik açısından büyük önem taşır. <b> Kompresörün verimli ve uzun ömürlü çalışması için segmanlar periyodik bakımlarda değiştirilmelidir.</b>"
+        },
+        en: {
+            "translate1": "Compressor Rings are critical components in piston compressors that ensure sealing between the cylinder wall and the piston. These parts directly affect the compressor's performance, efficiency, and durability, ensuring long-term operation.",
+            "translate3_1": "<strong>Sealing Function:</strong> Prevents gas or air leakage inside the cylinder, increasing compression efficiency.",
+            "translate3_2": "<strong>Wear Protection:</strong> Reduces wear by preventing direct contact between the cylinder surface and the piston.",
+            "translate3_3": "<strong>Heat Distribution:</strong> Distributes heat generated during compression, preventing system overheating.",
+            "translate6": "Our high-quality compressor rings are resistant to harsh operating conditions and play a crucial role in energy efficiency and operational safety. <b> To ensure efficient and long-lasting compressor operation, rings should be replaced during periodic maintenance.</b>"
+        }
+    };
+
+    function isLocalStorageAvailable() {
+        try {
+            localStorage.setItem("test", "test");
+            localStorage.removeItem("test");
+            return true;
+        } catch (e) {
+            return false;
+        }
+    }
+
+    function getLang() {
+        if (isLocalStorageAvailable()) {
+            return localStorage.getItem("selectedLang") || "tr";
+        } else {
+            return document.cookie.replace(/(?:(?:^|.*;\s*)selectedLang\s*=\s*([^;]*).*$)|^.*$/, "$1") || "tr";
+        }
+    }
+
+    function setLang(lang) {
+        if (isLocalStorageAvailable()) {
+            localStorage.setItem("selectedLang", lang);
+        } else {
+            document.cookie = `selectedLang=${lang}; path=/; max-age=31536000`;
+        }
+    }
+
+    let currentLang = getLang();
+    updateLanguage(currentLang);
+
+    langToggle.addEventListener("click", function () {
+        loadingScreen.classList.add("show"); // Loading ekranını göster
+        
+        setTimeout(() => {
+            currentLang = currentLang === "tr" ? "en" : "tr";
+            setLang(currentLang);
+            updateLanguage(currentLang);
+
+            if (navbarCollapse.classList.contains("show")) {
+                navbarCollapse.classList.remove("show");
+            }
+
+            setTimeout(() => {
+                loadingScreen.classList.remove("show"); // Loading ekranını gizle
+            }, 300);
+        }, 300);
+    });
+
+    function updateLanguage(lang) {
+        langToggle.textContent = lang === "tr" ? "EN" : "TR";
+
+        // Genel metin çevirisi
+        document.querySelectorAll(".nav-link, .navbar-brand span, .baslik, h2, #translate1, #translate2").forEach(el => {
+            let text = el.textContent.trim();
+            if (lang === "en" && elementsToTranslate[text]) {
+                el.textContent = elementsToTranslate[text];
+            } else if (lang === "tr") {
+                let trText = Object.keys(elementsToTranslate).find(key => elementsToTranslate[key] === text);
+                if (trText) el.textContent = trText;
+            }
+        });
+
+        // translate3 içindeki liste elemanları güncellenmesi
+        const translate3 = document.querySelectorAll("#translate3 li");
+        translate3.forEach((li) => {
+            let id = li.getAttribute("id");
+            if (translations[lang][id]) {
+                li.innerHTML = translations[lang][id];
+            }
+        });
+
+        // translate6 güncellenmesi
+        const translate6El = document.getElementById("translate6");
+        if (translate6El) {
+            translate6El.innerHTML = translations[lang]["translate6"];
+        }
+    }
+});
+
+  </script>
+    
 
 
 </body>
