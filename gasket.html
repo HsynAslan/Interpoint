@@ -23,7 +23,11 @@
         }
     </style>
 </head>
-<body style="overflow-y: auto !important;">
+<body style="overflow-y: auto !important; height: 100vh; 
+margin: 0; 
+background: linear-gradient(to right, #02417f2d, #2a8686); 
+background-size: 200% 100%; 
+animation: bgMove 20s linear infinite alternate;">
     
 <!-- Loading Screen -->
 <div id="loading-screen">
@@ -50,13 +54,17 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto" style="display: flex; flex-direction: row-reverse;">
                 <li class="nav-item" style="margin-left: 4vh;">
-                    <a class="nav-link" href="/iletisim.html">İletişim</a>
+                    <a class="nav-link" aria-current="page" href="/hakkimizda.html">Hakkımızda</a>
                 </li>
+               
                 <li class="nav-item" style="margin-left: 4vh;">
                     <a class="nav-link" href="/ürünlerimiz.html">Ürünlerimiz</a>
                 </li>
                 <li class="nav-item" style="margin-left: 4vh;">
-                    <a class="nav-link" aria-current="page" href="/hakkimizda.html">Hakkımızda</a>
+                    <a class="nav-link" href="/iletisim.html">İletişim</a>
+                </li>
+                <li class="nav-item" style="margin-left: 4vh;">
+                    <button id="lang-toggle" class="btn btn-primary">EN</button>
                 </li>
             </ul>
         </div>
@@ -72,15 +80,15 @@
 
 
   
-    
+    <div class="carousel-container2" id="suctionImageContainer">
+        <img id="suctionValveImage" src="./images/6.png" alt="Suction Valve">
+    </div>
 
 <!-- İçerik Alanı -->
 <section class="valve-container">
     <!-- Suction Valve İçeriği -->
     <div class="valve-content" id="suctionValveContent">
-        <div class="carousel-container2" id="suctionImageContainer">
-            <img id="suctionValveImage" src="./images/6.png" alt="Suction Valve">
-        </div>
+       
 
         <div class="valve-info" id="suctionValveInfo">
             <h2> O-Ring ve Gasket</h2>
@@ -121,7 +129,7 @@
  
 </section>
 
-
+<div class="circle-quarter2"></div>
 
 <script>
 
