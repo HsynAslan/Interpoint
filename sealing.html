@@ -50,13 +50,17 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto" style="display: flex; flex-direction: row-reverse;">
                 <li class="nav-item" style="margin-left: 4vh;">
-                    <a class="nav-link" href="/iletisim.html">İletişim</a>
+                    <a class="nav-link" aria-current="page" href="/hakkimizda.html">Hakkımızda</a>
                 </li>
                 <li class="nav-item" style="margin-left: 4vh;">
                     <a class="nav-link" href="/ürünlerimiz.html">Ürünlerimiz</a>
                 </li>
+                
                 <li class="nav-item" style="margin-left: 4vh;">
-                    <a class="nav-link" aria-current="page" href="/hakkimizda.html">Hakkımızda</a>
+                    <a class="nav-link" href="/iletisim.html">İletişim</a>
+                </li>
+                <li class="nav-item" style="margin-left: 4vh;">
+                    <button id="lang-toggle" class="btn btn-primary">EN</button>
                 </li>
             </ul>
         </div>
@@ -85,19 +89,19 @@
         <div class="valve-info" id="suctionValveInfo">
             <h2>🔹 Sealing Ring (Sızdırmazlık Segmanları)</h2>
             <ul>
-                <li>
+                <li id="cevir1">
                     Sealing ring (sızdırmazlık segmanları), kompresör valflerinde gaz veya hava kaçağını önlemek ve sistemin verimli çalışmasını sağlamak amacıyla kullanılan önemli bileşenlerdir. Yüksek sıcaklık ve basınç altında güvenilir performans sunarak kompresörün ömrünü uzatır ve enerji kayıplarını minimize eder.
                 </li>
                 <br>
                 <h2> Sealing Ring’lerin Görevleri</h2>
                 <ul>
-                    <li> <strong>Sızdırmazlık Sağlama:</strong> Hava veya gazın istenilen yönde akmasını sağlayarak kaçakları önler.</li>
-                    <li> <strong>Aşınmaya Karşı Dayanıklılık:</strong> Sürekli hareket ve yüksek basınca maruz kalan yüzeyleri koruyarak uzun ömürlü kullanım sağlar.</li>
-                    <li> <strong>Enerji Verimliliği:</strong> Kaçakları önleyerek kompresörün daha düşük enerji tüketimiyle çalışmasına yardımcı olur.</li>
-                    <li> <strong>Titreşim ve Gürültü Azaltma:</strong> Kompresörün daha stabil ve sessiz çalışmasına katkıda bulunur.</li>
+                    <li id="cevir2"> <strong>Sızdırmazlık Sağlama:</strong> Hava veya gazın istenilen yönde akmasını sağlayarak kaçakları önler.</li>
+                    <li id="cevir3"> <strong>Aşınmaya Karşı Dayanıklılık:</strong> Sürekli hareket ve yüksek basınca maruz kalan yüzeyleri koruyarak uzun ömürlü kullanım sağlar.</li>
+                    <li id="cevir4"> <strong>Enerji Verimliliği:</strong> Kaçakları önleyerek kompresörün daha düşük enerji tüketimiyle çalışmasına yardımcı olur.</li>
+                    <li id="cevir5"> <strong>Titreşim ve Gürültü Azaltma:</strong> Kompresörün daha stabil ve sessiz çalışmasına katkıda bulunur.</li>
                 </ul>
                 <br>
-                <li>
+                <li id="cevir6">
                     Yüksek kaliteli malzemelerden üretilen sızdırmazlık segmanlarımız, ağır çalışma koşullarına dayanıklı olup enerji tasarrufu ve operasyonel güvenlik açısından büyük önem taşır. <b> Kompresörün verimli ve uzun ömürlü çalışması için segmanlar periyodik bakımlarda değiştirilmelidir.</b>
                 </li>
             </ul>
@@ -189,6 +193,125 @@ document.addEventListener("DOMContentLoaded", function () {
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const langToggle = document.getElementById("lang-toggle");
+            const loadingScreen = document.getElementById("loading-screen");
+            const navbarCollapse = document.querySelector(".navbar-collapse");
+    
+            // Çeviri verileri
+            const elementsToTranslate = {
+                "İletişim": "Contact",
+                "Ürünlerimiz": "Our Products",
+                "Hakkımızda": "About Us",
+                "Interpoint Kompresör": "Interpoint Compressor",
+                "Sealing Ring": "Sealing Ring",
+                "🔹 Sealing Ring (Sızdırmazlık Segmanları)": "🔹 Sealing Ring",
+                "Sealing Ring’lerin Görevleri": "Tasks of Sealing Rings",
+                "Sealing ring (sızdırmazlık segmanları), kompresör valflerinde gaz veya hava kaçağını önlemek ve sistemin verimli çalışmasını sağlamak amacıyla kullanılan önemli bileşenlerdir. Yüksek sıcaklık ve basınç altında güvenilir performans sunarak kompresörün ömrünü uzatır ve enerji kayıplarını minimize eder.": 
+                "Sealing rings are important components used in compressor valves to prevent gas or air leakage and ensure efficient system operation. They provide reliable performance under high temperature and pressure, extending the life of the compressor and minimizing energy losses.",
+                "Sızdırmazlık Sağlama:": "Sealing Function:",
+                "Hava veya gazın istenilen yönde akmasını sağlayarak kaçakları önler.": "Prevents leakage by ensuring air or gas flows in the desired direction.",
+                "Aşınmaya Karşı Dayanıklılık:": "Wear Resistance:",
+                "Sürekli hareket ve yüksek basınca maruz kalan yüzeyleri koruyarak uzun ömürlü kullanım sağlar.": "Ensures long-term use by protecting surfaces exposed to continuous movement and high pressure.",
+                "Enerji Verimliliği:": "Energy Efficiency:",
+                "Kaçakları önleyerek kompresörün daha düşük enerji tüketimiyle çalışmasına yardımcı olur.": "Helps the compressor operate with lower energy consumption by preventing leaks.",
+                "Titreşim ve Gürültü Azaltma:": "Vibration and Noise Reduction:",
+                "Kompresörün daha stabil ve sessiz çalışmasına katkıda bulunur.": "Contributes to more stable and quieter operation of the compressor."
+            };
+    
+            const translations = {
+                tr: {
+                    "cevir1": "Sealing ring (sızdırmazlık segmanları), kompresör valflerinde gaz veya hava kaçağını önlemek ve sistemin verimli çalışmasını sağlamak amacıyla kullanılan önemli bileşenlerdir. Yüksek sıcaklık ve basınç altında güvenilir performans sunarak kompresörün ömrünü uzatır ve enerji kayıplarını minimize eder.",
+                    "cevir2": "<strong>Sızdırmazlık Sağlama:</strong> Hava veya gazın istenilen yönde akmasını sağlayarak kaçakları önler.",
+                    "cevir3": "<strong>Aşınmaya Karşı Dayanıklılık:</strong> Sürekli hareket ve yüksek basınca maruz kalan yüzeyleri koruyarak uzun ömürlü kullanım sağlar.",
+                    "cevir4": "<strong>Enerji Verimliliği:</strong> Kaçakları önleyerek kompresörün daha düşük enerji tüketimiyle çalışmasına yardımcı olur.",
+                    "cevir5": "<strong>Titreşim ve Gürültü Azaltma:</strong> Kompresörün daha stabil ve sessiz çalışmasına katkıda bulunur.",
+                    "cevir6": "Yüksek kaliteli malzemelerden üretilen sızdırmazlık segmanlarımız, ağır çalışma koşullarına dayanıklı olup enerji tasarrufu ve operasyonel güvenlik açısından büyük önem taşır. <b> Kompresörün verimli ve uzun ömürlü çalışması için segmanlar periyodik bakımlarda değiştirilmelidir.</b>"
+                },
+                en: {
+                    "cevir1": "Sealing rings are important components used in compressor valves to prevent gas or air leakage and ensure efficient system operation. They provide reliable performance under high temperature and pressure, extending the life of the compressor and minimizing energy losses.",
+                    "cevir2": "<strong>Sealing Function:</strong> Prevents leakage by ensuring air or gas flows in the desired direction.",
+                    "cevir3": "<strong>Wear Resistance:</strong> Ensures long-term use by protecting surfaces exposed to continuous movement and high pressure.",
+                    "cevir4": "<strong>Energy Efficiency:</strong> Helps the compressor operate with lower energy consumption by preventing leaks.",
+                    "cevir5": "<strong>Vibration and Noise Reduction:</strong> Contributes to more stable and quieter operation of the compressor.",
+                    "cevir6": "Our high-quality sealing rings are resistant to harsh operating conditions and play a crucial role in energy efficiency and operational safety. <b> To ensure efficient and long-lasting compressor operation, rings should be replaced during periodic maintenance.</b>"
+                }
+            };
+    
+            function isLocalStorageAvailable() {
+                try {
+                    localStorage.setItem("test", "test");
+                    localStorage.removeItem("test");
+                    return true;
+                } catch (e) {
+                    return false;
+                }
+            }
+    
+            function getLang() {
+                if (isLocalStorageAvailable()) {
+                    return localStorage.getItem("selectedLang") || "tr";
+                } else {
+                    return document.cookie.replace(/(?:(?:^|.*;\s*)selectedLang\s*=\s*([^;]*).*$)|^.*$/, "$1") || "tr";
+                }
+            }
+    
+            function setLang(lang) {
+                if (isLocalStorageAvailable()) {
+                    localStorage.setItem("selectedLang", lang);
+                } else {
+                    document.cookie = `selectedLang=${lang}; path=/; max-age=31536000`;
+                }
+            }
+    
+            let currentLang = getLang();
+            updateLanguage(currentLang);
+    
+            langToggle.addEventListener("click", function () {
+                loadingScreen.classList.add("show"); // Loading ekranını göster
+                
+                setTimeout(() => {
+                    currentLang = currentLang === "tr" ? "en" : "tr";
+                    setLang(currentLang);
+                    updateLanguage(currentLang);
+    
+                    if (navbarCollapse.classList.contains("show")) {
+                        navbarCollapse.classList.remove("show");
+                    }
+    
+                    setTimeout(() => {
+                        loadingScreen.classList.remove("show"); // Loading ekranını gizle
+                    }, 300);
+                }, 300);
+            });
+    
+            function updateLanguage(lang) {
+                langToggle.textContent = lang === "tr" ? "EN" : "TR";
+    
+                // Genel metin çevirisi
+                document.querySelectorAll(".nav-link, .navbar-brand span, .baslik, h2, #cevir1, #cevir2").forEach(el => {
+                    let text = el.textContent.trim();
+                    if (lang === "en" && elementsToTranslate[text]) {
+                        el.textContent = elementsToTranslate[text];
+                    } else if (lang === "tr") {
+                        let trText = Object.keys(elementsToTranslate).find(key => elementsToTranslate[key] === text);
+                        if (trText) el.textContent = trText;
+                    }
+                });
+    
+                // cevir1, cevir2, cevir3, cevir4, cevir5, cevir6 güncellenmesi
+                const translateElements = document.querySelectorAll("#cevir1, #cevir2, #cevir3, #cevir4, #cevir5, #cevir6");
+                translateElements.forEach((el) => {
+                    let id = el.getAttribute("id");
+                    if (translations[lang][id]) {
+                        el.innerHTML = translations[lang][id];
+                    }
+                });
+            }
+        });
+    </script>
 
 </body>
 </html>
