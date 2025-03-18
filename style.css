@@ -675,6 +675,7 @@ opacity: 0.9;
 
 /* Kart Genel Stili */
 .urun-card {
+    cursor: pointer;
     background: #fff;
     border-radius: 12px;
     overflow: hidden;
