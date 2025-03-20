@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yağ Filtresi</title>
+    <link rel="icon" type="image/png" href="./images/Interpoint Compressor Logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            
+            z-index: 2000; /* Loading ekranını en üste yerleştir */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body style="overflow-y: auto !important; height: 100vh; 
+margin: 0; 
+background: linear-gradient(to right, #02417f2d, #2a8686); 
+background-size: 200% 100%; 
+animation: bgMove 20s linear infinite alternate;">
+    
+<!-- Loading Screen -->
+<div id="loading-screen">
+    <div class="loading-spinner"></div>
+</div>
+
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand active" href="/index.html">
+            <img src="./images/Interpoint Compressor Logo.png" alt="Interpoint Logo" class="navbar-logo">
+            <span style="color: white;" class="active">Interpoint Kompresör</span>
+        </a>
+        <!-- Hamburger Menü Butonu (Sadece 768px ve altı) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+            data-bs-target="#navbarNav" aria-controls="navbarNav" 
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Menü Öğeleri -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto" style="display: flex; flex-direction: row-reverse;">
+                <li class="nav-item" style="margin-left: 4vh;">
+                    <a class="nav-link" aria-current="page" href="/hakkimizda.html">Hakkımızda</a>
+                </li>
+                <li class="nav-item" style="margin-left: 4vh;">
+                    <a class="nav-link" href="/ürünlerimiz.html">Ürünlerimiz</a>
+                </li>
+                
+                <li class="nav-item" style="margin-left: 4vh;">
+                    <a class="nav-link" href="/iletisim.html">İletişim</a>
+                </li>
+                <li class="nav-item" style="margin-left: 4vh;">
+                    <button id="lang-toggle" class="btn btn-primary">EN</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+    <!-- Sayfa Başlığı -->
+    <header class="page-header">
+        <h1 class="baslik">Yağ Filtresi</h1>
+    </header>
+
+
+  
+    
+    <div class="carousel-container2" id="suctionImageContainer">
+        <img id="suctionValveImage" src="./images/11.jpg" alt="Suction Valve">
+    </div>
+<!-- İçerik Alanı -->
+<section class="valve-container">
+    
+    <!-- Suction Valve İçeriği -->
+    <div class="valve-content" id="suctionValveContent">
+       
+
+        <div class="valve-info" id="suctionValveInfo">
+            <h2>🔹 Yağ Filtresi</h2>
+            <ul>
+                <li id="cevir1">
+                    Endüstriyel makineler ve hidrolik sistemlerde kullanılan yağ filtreleri, sistemin verimli ve uzun ömürlü çalışmasını sağlamak için kritik bir bileşendir. Belliss & Morcom ve AF Compressor gibi yüksek performanslı kompresörlerde yaygın olarak kullanılan bu filtreler, yağın içerisindeki partikülleri, kirleri ve metal aşınma kalıntılarını temizleyerek makine bileşenlerinin korunmasına yardımcı olur. 
+                </li>
+                <br>
+                <h2> Özellikler ve Avantajlar</h2>
+                <ul>
+                    <li id="cevir2"> Yüksek Filtrasyon Verimliliği: Yağ içindeki kirleticileri etkili şekilde süzerek sistemin temiz kalmasını sağlar.</li>
+                    <li id="cevir3"> Dayanıklı ve Uzun Ömürlü Malzemei: Endüstriyel koşullara uygun, sağlam yapısıyla uzun süreli kullanım imkânı sunar.</li>
+                    <li id="cevir4"> Düşük Basınç Kaybı: Hidrolik ve yağlama sistemlerinde akışkanın verimli dolaşımını destekler.</li>
+                    <li id="cevir5"> Kolay Değişim ve Bakım: Hızlı ve pratik montaj özelliği sayesinde bakım süreçlerini kolaylaştırır.</li>
+                    <li id="cevir7"> Sistem Ömrünü Uzatır: Motor ve mekanik bileşenlerin aşınmasını azaltarak daha uzun ömürlü bir kullanım sunar.</li>
+                </ul>
+                <br>
+                <li id="cevir6">
+                    Endüstriyel uygulamalarda kullanılan yağ filtreleri,makinelerin optimum performansla çalışmasını sağlarken, bakım maliyetlerini düşürmeye ve enerji verimliliğini artırmaya katkıda bulunur. Filtrenin düzenli olarak değiştirilmesi, sistemin sorunsuz çalışması için büyük önem taşır.</b>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+ 
+</section>
+
+<div class="circle-quarter2"></div>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+    const suctionValveContent = document.getElementById("suctionValveContent");
+    const deliveryValveContent = document.getElementById("deliveryValveContent");
+
+    const suctionValveBtn = document.getElementById("suctionValveBtn");
+    const deliveryValveBtn = document.getElementById("deliveryValveBtn");
+
+    // Sayfa açıldığında emme valfi içeriğini göster
+    suctionValveContent.style.display = "block";
+    deliveryValveContent.style.display = "none";
+
+    // Emme Valfi butonuna tıklanınca
+    suctionValveBtn.addEventListener("click", function () {
+        suctionValveContent.style.display = "block";
+        deliveryValveContent.style.display = "none";
+
+        // Buton stillerini güncelle
+        suctionValveBtn.classList.add("active");
+        deliveryValveBtn.classList.remove("active");
+    });
+
+    // Basma Valfi butonuna tıklanınca
+    deliveryValveBtn.addEventListener("click", function () {
+        suctionValveContent.style.display = "none";
+        deliveryValveContent.style.display = "block";
+
+        // Buton stillerini güncelle
+        suctionValveBtn.classList.remove("active");
+        deliveryValveBtn.classList.add("active");
+    });
+});
+
+
+
+</script>
+<!-- Sayfa Yükleme Efekti -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const loadingScreen = document.getElementById("loading-screen");
+    
+        // Sayfa ilk açıldığında loading spinner'ı gizle
+        setTimeout(() => {
+            loadingScreen.classList.remove("show");
+        }, 500);
+    
+        // Tüm linkleri dinle
+        document.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", function (event) {
+                const href = this.getAttribute("href");
+    
+                // Eğer href değeri boşsa veya sayfa içi bağlantıysa, işlemi durdur
+                if (!href || href.startsWith("#") || href.startsWith("javascript")) return;
+    
+                // Telefon ve e-posta bağlantılarında yükleme ekranını tetikleme
+                if (href.startsWith("tel:") || href.startsWith("mailto:")) return;
+    
+                // Normal linkler için loading-screen göster ve yönlendir
+                event.preventDefault();
+                loadingScreen.classList.add("show");
+    
+                setTimeout(() => {
+                    window.location.assign(href);
+                }, 800);
+            });
+        });
+    
+        // 🔹 GERİ TUŞU İLE GELİNİRSE LOADING SPINNER'I GİZLE
+        window.addEventListener("pageshow", function (event) {
+            if (event.persisted) { 
+                loadingScreen.classList.remove("show");
+            }
+        });
+    });
+    </script>
+    
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const langToggle = document.getElementById("lang-toggle");
+            const loadingScreen = document.getElementById("loading-screen");
+            const navbarCollapse = document.querySelector(".navbar-collapse");
+    
+            // Çeviri verileri
+            const elementsToTranslate = {
+                "İletişim": "Contact",
+                "Ürünlerimiz": "Our Products",
+                "Hakkımızda": "About Us",
+                "Interpoint Kompresör": "Interpoint Compressor",
+                "Yağ Filtresi": "Oil Filter",
+                "🔹 Yağ Filtresi": "🔹 Oil Filter",
+                "Özellikler ve Avantajlar": "Features and Advantages",
+                "Endüstriyel makineler ve hidrolik sistemlerde kullanılan yağ filtreleri, sistemin verimli ve uzun ömürlü çalışmasını sağlamak için kritik bir bileşendir. Belliss & Morcom ve AF Compressor gibi yüksek performanslı kompresörlerde yaygın olarak kullanılan bu filtreler, yağın içerisindeki partikülleri, kirleri ve metal aşınma kalıntılarını temizleyerek makine bileşenlerinin korunmasına yardımcı olur.": 
+                "Oil filters used in industrial machinery and hydraulic systems are critical components for ensuring the efficient and long-lasting operation of the system. These filters, commonly used in high-performance compressors such as Belliss & Morcom and AF Compressor, clean particles, dirt, and metal wear residues from the oil, helping to protect machine components.",
+                "Yüksek Filtrasyon Verimliliği: Yağ içindeki kirleticileri etkili şekilde süzerek sistemin temiz kalmasını sağlar.": 
+                "High Filtration Efficiency: Effectively filters contaminants in the oil, keeping the system clean.",
+                "Dayanıklı ve Uzun Ömürlü Malzeme: Endüstriyel koşullara uygun, sağlam yapısıyla uzun süreli kullanım imkânı sunar.": 
+                "Durable and Long-Lasting Material: Offers long-term use with its robust structure suitable for industrial conditions.",
+                "Düşük Basınç Kaybı: Hidrolik ve yağlama sistemlerinde akışkanın verimli dolaşımını destekler.": 
+                "Low Pressure Loss: Supports efficient fluid circulation in hydraulic and lubrication systems.",
+                "Kolay Değişim ve Bakım: Hızlı ve pratik montaj özelliği sayesinde bakım süreçlerini kolaylaştırır.": 
+                "Easy Replacement and Maintenance: Simplifies maintenance processes with its quick and practical installation feature.",
+                "Sistem Ömrünü Uzatır: Motor ve mekanik bileşenlerin aşınmasını azaltarak daha uzun ömürlü bir kullanım sunar.": 
+                "Extends System Lifespan: Reduces wear on motor and mechanical components, offering longer-lasting use.",
+                "Endüstriyel uygulamalarda kullanılan yağ filtreleri, makinelerin optimum performansla çalışmasını sağlarken, bakım maliyetlerini düşürmeye ve enerji verimliliğini artırmaya katkıda bulunur. Filtrenin düzenli olarak değiştirilmesi, sistemin sorunsuz çalışması için büyük önem taşır.": 
+                "Oil filters used in industrial applications ensure machines operate at optimal performance while contributing to reducing maintenance costs and improving energy efficiency. Regular replacement of the filter is crucial for the smooth operation of the system."
+            };
+    
+            const translations = {
+                tr: {
+                    "cevir1": "Endüstriyel makineler ve hidrolik sistemlerde kullanılan yağ filtreleri, sistemin verimli ve uzun ömürlü çalışmasını sağlamak için kritik bir bileşendir. Belliss & Morcom ve AF Compressor gibi yüksek performanslı kompresörlerde yaygın olarak kullanılan bu filtreler, yağın içerisindeki partikülleri, kirleri ve metal aşınma kalıntılarını temizleyerek makine bileşenlerinin korunmasına yardımcı olur.",
+                    "cevir2": "Yüksek Filtrasyon Verimliliği: Yağ içindeki kirleticileri etkili şekilde süzerek sistemin temiz kalmasını sağlar.",
+                    "cevir3": "Dayanıklı ve Uzun Ömürlü Malzeme: Endüstriyel koşullara uygun, sağlam yapısıyla uzun süreli kullanım imkânı sunar.",
+                    "cevir4": "Düşük Basınç Kaybı: Hidrolik ve yağlama sistemlerinde akışkanın verimli dolaşımını destekler.",
+                    "cevir5": "Kolay Değişim ve Bakım: Hızlı ve pratik montaj özelliği sayesinde bakım süreçlerini kolaylaştırır.",
+                    "cevir7": "Sistem Ömrünü Uzatır: Motor ve mekanik bileşenlerin aşınmasını azaltarak daha uzun ömürlü bir kullanım sunar.",
+                    "cevir6": "Endüstriyel uygulamalarda kullanılan yağ filtreleri, makinelerin optimum performansla çalışmasını sağlarken, bakım maliyetlerini düşürmeye ve enerji verimliliğini artırmaya katkıda bulunur. Filtrenin düzenli olarak değiştirilmesi, sistemin sorunsuz çalışması için büyük önem taşır."
+                },
+                en: {
+                    "cevir1": "Oil filters used in industrial machinery and hydraulic systems are critical components for ensuring the efficient and long-lasting operation of the system. These filters, commonly used in high-performance compressors such as Belliss & Morcom and AF Compressor, clean particles, dirt, and metal wear residues from the oil, helping to protect machine components.",
+                    "cevir2": "High Filtration Efficiency: Effectively filters contaminants in the oil, keeping the system clean.",
+                    "cevir3": "Durable and Long-Lasting Material: Offers long-term use with its robust structure suitable for industrial conditions.",
+                    "cevir4": "Low Pressure Loss: Supports efficient fluid circulation in hydraulic and lubrication systems.",
+                    "cevir5": "Easy Replacement and Maintenance: Simplifies maintenance processes with its quick and practical installation feature.",
+                    "cevir7": "Extends System Lifespan: Reduces wear on motor and mechanical components, offering longer-lasting use.",
+                    "cevir6": "Oil filters used in industrial applications ensure machines operate at optimal performance while contributing to reducing maintenance costs and improving energy efficiency. Regular replacement of the filter is crucial for the smooth operation of the system."
+                }
+            };
+    
+            function isLocalStorageAvailable() {
+                try {
+                    localStorage.setItem("test", "test");
+                    localStorage.removeItem("test");
+                    return true;
+                } catch (e) {
+                    return false;
+                }
+            }
+    
+            function getLang() {
+                if (isLocalStorageAvailable()) {
+                    return localStorage.getItem("selectedLang") || "tr";
+                } else {
+                    return document.cookie.replace(/(?:(?:^|.*;\s*)selectedLang\s*=\s*([^;]*).*$)|^.*$/, "$1") || "tr";
+                }
+            }
+    
+            function setLang(lang) {
+                if (isLocalStorageAvailable()) {
+                    localStorage.setItem("selectedLang", lang);
+                } else {
+                    document.cookie = `selectedLang=${lang}; path=/; max-age=31536000`;
+                }
+            }
+    
+            let currentLang = getLang();
+            updateLanguage(currentLang);
+    
+            langToggle.addEventListener("click", function () {
+                loadingScreen.classList.add("show"); // Loading ekranını göster
+                
+                setTimeout(() => {
+                    currentLang = currentLang === "tr" ? "en" : "tr";
+                    setLang(currentLang);
+                    updateLanguage(currentLang);
+    
+                    if (navbarCollapse.classList.contains("show")) {
+                        navbarCollapse.classList.remove("show");
+                    }
+    
+                    setTimeout(() => {
+                        loadingScreen.classList.remove("show"); // Loading ekranını gizle
+                    }, 300);
+                }, 300);
+            });
+    
+            function updateLanguage(lang) {
+                langToggle.textContent = lang === "tr" ? "EN" : "TR";
+    
+                // Navbar metinlerini çevir (href ve class özelliklerini koru)
+                document.querySelectorAll(".nav-link, .navbar-brand span").forEach(el => {
+                    let text = el.textContent.trim();
+                    if (lang === "en" && elementsToTranslate[text]) {
+                        el.textContent = elementsToTranslate[text]; // Sadece metni güncelle
+                    } else if (lang === "tr") {
+                        let trText = Object.keys(elementsToTranslate).find(key => elementsToTranslate[key] === text);
+                        if (trText) el.textContent = trText; // Sadece metni güncelle
+                    }
+                });
+    
+                // Diğer genel metin çevirisi
+                document.querySelectorAll(".baslik, h2, li").forEach(el => {
+                    let text = el.textContent.trim();
+                    if (lang === "en" && elementsToTranslate[text]) {
+                        el.textContent = elementsToTranslate[text];
+                    } else if (lang === "tr") {
+                        let trText = Object.keys(elementsToTranslate).find(key => elementsToTranslate[key] === text);
+                        if (trText) el.textContent = trText;
+                    }
+                });
+    
+                // translate1, translate2, translate3, translate4, translate5, translate6, translate7 güncellenmesi
+                const translateElements = document.querySelectorAll("li, h2, .baslik");
+                translateElements.forEach((el) => {
+                    let id = el.getAttribute("id");
+                    if (id && translations[lang][id]) {
+                        el.innerHTML = translations[lang][id];
+                    }
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
