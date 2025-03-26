@@ -322,34 +322,55 @@ animation: bgMove 20s linear infinite alternate;">
             const loadingScreen = document.getElementById("loading-screen");
             const navbarCollapse = document.querySelector(".navbar-collapse");
     
-            // Çeviri verileri
+            // Translation data
             const elementsToTranslate = {
-    "İletişim": "Contact",
-    "Ürünlerimiz": "Our Products",
-    "Hakkımızda": "About Us",
-    "Interpoint Kompresör": "Interpoint Compressor",
-    "Güvenilir Hizmet.": "Reliable Service.",
-    "Mükemmel Çözümler.": "Perfect Solutions.",
-    "Servis & Yedek Parça": "Service & Spare Parts",
-    "INTERPOINT": "INTERPOINT",
-    "KOMPRESOR": "COMPRESSOR",
-    "Valve": "Valve",
-    "Belliss & Morcom ve AF Compressor gibi yüksek performanslı kompresörlerde kullanılan suction valve (emme valfi) ve delivery valve (basma valfi), hava veya gazın verimli ve güvenli bir şekilde sıkıştırılmasını sağlamak için kritik bileşenlerdir.":
-        "Suction valves (inlet valves) and delivery valves (discharge valves) used in high-performance compressors such as Belliss & Morcom and AF Compressor are critical components for efficient and safe compression of air or gas.",
-    "🔹 Suction Valve (Emme Valfi) Görevleri": "🔹 Suction Valve (Inlet Valve) Tasks",
-    "Kompresörün emme aşamasında çalışır.": "Operates during the suction phase of the compressor.",
-    "Dış ortamdan veya bir kaynaktan gelen gazı içeri alarak kompresörün içine yönlendirir.": "Directs gas from the external environment or a source into the compressor.",
-    "Havanın yalnızca belirlenen yönde akmasını sağlar ve geri kaçmasını önler.": "Ensures air flows only in the specified direction and prevents backflow.",
-    "Enerji verimliliğini artırarak kompresörün daha az güç tüketmesini destekler.": "Supports energy efficiency by reducing the compressor's power consumption.",
-    "🔹 Delivery Valve (Basma Valfi) Görevleri": "🔹 Delivery Valve (Discharge Valve) Tasks",
-    "Sıkıştırılan havanın kompresörden çıkmasını sağlar.": "Allows compressed air to exit the compressor.",
-    "Yüksek basınca dayanıklı olup havanın geri kaçmasını engeller.": "Resists high pressure and prevents air from flowing back.",
-    "Kompresörün istikrarlı çalışmasını sağlayarak sistemdeki basıncı düzenler.": "Ensures stable operation of the compressor by regulating system pressure.",
-    "Endüstriyel uygulamalarda güvenilir hava veya gaz akışı sağlar.": "Provides reliable air or gas flow in industrial applications.",
-    "Kullandığımız Avrupa standartlarındaki valfler, kompresörlerin uzun ömürlü ve verimli çalışmasını destekleyen temel bileşenler olup enerji tasarrufu ve operasyonel güvenlik açısından büyük önem taşır. Kompresörün verimli ve tasarruflu çalışması için düzenli bakımlarının yapılması önemlidir.":
-        "The European standard valves we use are fundamental components that support the long-lasting and efficient operation of compressors, playing a crucial role in energy savings and operational safety. Regular maintenance is essential for the efficient and economical operation of the compressor."
-};
-            // LocalStorage ve Cookie Kontrolü
+                "İletişim": "Contact",
+                "Ürünlerimiz": "Our Products",
+                "Hakkımızda": "About Us",
+                "Interpoint Kompresör": "Interpoint Compressor",
+                "🔹 Suction Valve (Emme Valfi) Görevleri": "🔹 Suction Valve Tasks",
+                "🔹 Delivery Valve (Basma Valfi) Görevleri": "🔹 Delivery Valve Tasks",
+                "Belliss & Morcom ve AF Compressor gibi yüksek performanslı kompresörlerde kullanılan suction valve (emme valfi) ve delivery valve (basma valfi), hava veya gazın verimli ve güvenli bir şekilde sıkıştırılmasını sağlamak için kritik bileşenlerdir.": 
+                "Suction valves and delivery valves used in high-performance compressors like Belliss & Morcom and AF Compressor are critical components for efficient and safe compression of air or gas.",
+                "Kompresörün emme aşamasında çalışır.": 
+                "Operates during the compressor's suction phase.",
+                "Dış ortamdan veya bir kaynaktan gelen gazı içeri alarak kompresörün içine yönlendirir.": 
+                "Draws in gas from the external environment or source and directs it into the compressor.",
+                "Havanın yalnızca belirlenen yönde akmasını sağlar ve geri kaçmasını önler.": 
+                "Ensures air flows only in the specified direction and prevents backflow.",
+                "Enerji verimliliğini artırarak kompresörün daha az güç tüketmesini destekler.": 
+                "Supports reduced power consumption by improving energy efficiency.",
+                "Sıkıştırılan havanın kompresörden çıkmasını sağlar.": 
+                "Allows compressed air to exit the compressor.",
+                "Yüksek basınca dayanıklı olup havanın geri kaçmasını engeller.": 
+                "Resistant to high pressure and prevents air backflow.",
+                "Kompresörün istikrarlı çalışmasını sağlayarak sistemdeki basıncı düzenler.": 
+                "Regulates system pressure ensuring stable compressor operation.",
+                "Endüstriyel uygulamalarda güvenilir hava veya gaz akışı sağlar.": 
+                "Provides reliable air or gas flow in industrial applications.",
+                "Kullandığımız Avrupa standartlarındaki valfler, kompresörlerin uzun ömürlü ve verimli çalışmasını destekleyen temel bileşenler olup enerji tasarrufu ve operasyonel güvenlik açısından büyük önem taşır. Kompresörün verimli ve tasarruflu çalışması için düzenli bakımlarının yapılması önemlidir.": 
+                "Our European standard valves are fundamental components that support the long-lasting and efficient operation of compressors, playing a crucial role in energy savings and operational safety. Regular maintenance is important for the efficient and economical operation of the compressor."
+            };
+    
+            const translations = {
+                tr: {
+                    "translate1": "Belliss & Morcom ve AF Compressor gibi yüksek performanslı kompresörlerde kullanılan <b>suction valve</b> (emme valfi) ve <b>delivery valve</b> (basma valfi), hava veya gazın verimli ve güvenli bir şekilde sıkıştırılmasını sağlamak için kritik bileşenlerdir.",
+                    "translate2": "🔹 Suction Valve (Emme Valfi) Görevleri",
+                    "translate3": "<li>Kompresörün emme aşamasında çalışır.</li><li>Dış ortamdan veya bir kaynaktan gelen gazı içeri alarak kompresörün içine yönlendirir.</li><li>Havanın yalnızca belirlenen yönde akmasını sağlar ve geri kaçmasını önler.</li><li>Enerji verimliliğini artırarak kompresörün daha az güç tüketmesini destekler.</li>",
+                    "translate4": "🔹 Delivery Valve (Basma Valfi) Görevleri",
+                    "translate5": "<li>Sıkıştırılan havanın kompresörden çıkmasını sağlar.</li><li>Yüksek basınca dayanıklı olup havanın geri kaçmasını engeller.</li><li>Kompresörün istikrarlı çalışmasını sağlayarak sistemdeki basıncı düzenler.</li><li>Endüstriyel uygulamalarda güvenilir hava veya gaz akışı sağlar.</li>",
+                    "translate6": "Kullandığımız Avrupa standartlarındaki valfler, kompresörlerin uzun ömürlü ve verimli çalışmasını destekleyen temel bileşenler olup enerji tasarrufu ve operasyonel güvenlik açısından büyük önem taşır. <b>Kompresörün verimli ve tasarruflu çalışması için düzenli bakımlarının yapılması önemlidir.</b>"
+                },
+                en: {
+                    "translate1": "Suction valves and delivery valves used in high-performance compressors like Belliss & Morcom and AF Compressor are critical components for efficient and safe compression of air or gas.",
+                    "translate2": "🔹 Suction Valve Tasks",
+                    "translate3": "<li>Operates during the compressor's suction phase.</li><li>Draws in gas from the external environment or source and directs it into the compressor.</li><li>Ensures air flows only in the specified direction and prevents backflow.</li><li>Supports reduced power consumption by improving energy efficiency.</li>",
+                    "translate4": "🔹 Delivery Valve Tasks",
+                    "translate5": "<li>Allows compressed air to exit the compressor.</li><li>Resistant to high pressure and prevents air backflow.</li><li>Regulates system pressure ensuring stable compressor operation.</li><li>Provides reliable air or gas flow in industrial applications.</li>",
+                    "translate6": "Our European standard valves are fundamental components that support the long-lasting and efficient operation of compressors, playing a crucial role in energy savings and operational safety. <b>Regular maintenance is important for the efficient and economical operation of the compressor.</b>"
+                }
+            };
+    
             function isLocalStorageAvailable() {
                 try {
                     localStorage.setItem("test", "test");
@@ -372,17 +393,16 @@ animation: bgMove 20s linear infinite alternate;">
                 if (isLocalStorageAvailable()) {
                     localStorage.setItem("selectedLang", lang);
                 } else {
-                    document.cookie = `selectedLang=${lang}; path=/; max-age=31536000`; // 1 yıl sakla
+                    document.cookie = `selectedLang=${lang}; path=/; max-age=31536000`;
                 }
             }
     
             let currentLang = getLang();
             updateLanguage(currentLang);
     
-            // Dil değiştirme butonu
             langToggle.addEventListener("click", function () {
                 loadingScreen.classList.add("show");
-    
+                
                 setTimeout(() => {
                     currentLang = currentLang === "tr" ? "en" : "tr";
                     setLang(currentLang);
@@ -398,45 +418,40 @@ animation: bgMove 20s linear infinite alternate;">
                 }, 300);
             });
     
-            // Dil güncelleme fonksiyonu
             function updateLanguage(lang) {
-    langToggle.textContent = lang === "tr" ? "EN" : "TR";
-
-    // Çeviri yapılacak elementleri seç ve güncelle
-    document.querySelectorAll(".nav-link, .navbar-brand span, .baslik, #translate1, #translate2, #translate4, #translate6").forEach(el => {
-        let text = el.textContent.trim();
-        if (lang === "en" && elementsToTranslate[text]) {
-            el.textContent = elementsToTranslate[text];
-        } else if (lang === "tr") {
-            let trText = Object.keys(elementsToTranslate).find(key => elementsToTranslate[key] === text);
-            if (trText) el.textContent = trText;
-        }
-    });
-
-    // #translate3 ve #translate5 içindeki <li> elementlerini çevir
-    const translate3 = document.querySelectorAll("#translate3 li");
-    const translate5 = document.querySelectorAll("#translate5 li");
-
-    translate3.forEach((li, index) => {
-        let text = li.textContent.trim();
-        if (lang === "en" && elementsToTranslate[text]) {
-            li.textContent = elementsToTranslate[text];
-        } else if (lang === "tr") {
-            let trText = Object.keys(elementsToTranslate).find(key => elementsToTranslate[key] === text);
-            if (trText) li.textContent = trText;
-        }
-    });
-
-    translate5.forEach((li, index) => {
-        let text = li.textContent.trim();
-        if (lang === "en" && elementsToTranslate[text]) {
-            li.textContent = elementsToTranslate[text];
-        } else if (lang === "tr") {
-            let trText = Object.keys(elementsToTranslate).find(key => elementsToTranslate[key] === text);
-            if (trText) li.textContent = trText;
-        }
-    });
-}
+                langToggle.textContent = lang === "tr" ? "EN" : "TR";
+    
+                // Translate navbar texts (preserve href and class attributes)
+                document.querySelectorAll(".nav-link, .navbar-brand span").forEach(el => {
+                    let text = el.textContent.trim();
+                    if (lang === "en" && elementsToTranslate[text]) {
+                        el.textContent = elementsToTranslate[text];
+                    } else if (lang === "tr") {
+                        let trText = Object.keys(elementsToTranslate).find(key => elementsToTranslate[key] === text);
+                        if (trText) el.textContent = trText;
+                    }
+                });
+    
+                // Translate other general texts
+                document.querySelectorAll(".baslik, h2, li").forEach(el => {
+                    let text = el.textContent.trim();
+                    if (lang === "en" && elementsToTranslate[text]) {
+                        el.textContent = elementsToTranslate[text];
+                    } else if (lang === "tr") {
+                        let trText = Object.keys(elementsToTranslate).find(key => elementsToTranslate[key] === text);
+                        if (trText) el.textContent = trText;
+                    }
+                });
+    
+                // Update translate1, translate2, etc.
+                const translateElements = document.querySelectorAll("li, h2, .baslik");
+                translateElements.forEach((el) => {
+                    let id = el.getAttribute("id");
+                    if (id && translations[lang][id]) {
+                        el.innerHTML = translations[lang][id];
+                    }
+                });
+            }
         });
     </script>
 
