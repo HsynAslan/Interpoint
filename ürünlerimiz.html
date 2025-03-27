@@ -109,18 +109,20 @@
             </div>
         </div>
 
-           <!-- Ürün 11: Burkert Solenoid Valf-->
-           <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-            <div class="urun-card" onclick="window.location.href='/burknet.html'">
-                <div class="urun-image-container">
-                    <img src="./images/13.jpg" class="urun-image-sbt" alt="Pump">
-                </div>
-                <div class="urun-info">
-                    <h5 class="urun-title">Burkert Solenoid Valf</h5>
-                    <a href="/burknet.html" class="urun-btn">Daha fazla bilgi için tıkla</a>
-                </div>
-            </div>
+     <!-- Ürün 11: Burkert Solenoid Valf-->
+<div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+    <div class="urun-card urun-animated" data-index="2" onclick="window.location.href='/burknet.html'">
+        <div class="urun-image-container">
+            <img src="./images/13.jpg" class="urun-image front active" alt="Burkert Solenoid Valf 1">
+            <img src="./images/14.jpg" class="urun-image back" alt="Burkert Solenoid Valf 2">
+            <img src="./images/15.jpg" class="urun-image back" alt="Burkert Solenoid Valf 3">
         </div>
+        <div class="urun-info">
+            <h5 class="urun-title">Burkert Solenoid Valf</h5>
+            <a href="/burknet.html" class="urun-btn">Daha fazla bilgi için tıkla</a>
+        </div>
+    </div>
+</div>
 
         <!-- Ürün 3: Filter (Tek Resim, Sabit) -->
         <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
@@ -327,6 +329,38 @@
             }
         
             setInterval(changeSecondProduct, 4000);
+
+         // **3. ÜRÜN: Burkert Solenoid Valf (3 Resim ve Başlık Değişimi)**
+const thirdProduct = document.querySelector(".urun-animated[data-index='2']");
+if (thirdProduct) {
+    const thirdTitle = thirdProduct.querySelector(".urun-title");
+    const thirdImages = thirdProduct.querySelectorAll(".urun-image");
+
+    const thirdTitles = {
+        tr: ["Burkert Solenoid Valf", "Burkert Tip 6013 Valf", "Burkert Tip 6014 Valf"],
+        en: ["Burkert Solenoid Valve", "Burkert Type 6013 Valve", "Burkert Type 6014 Valve"]
+    };
+
+    let thirdIndex = 0;
+    thirdImages[0].classList.add("active");
+
+    function changeThirdProduct() {
+        thirdImages.forEach(img => img.classList.remove("active"));
+        thirdTitle.style.opacity = "0";
+
+        setTimeout(() => {
+            thirdIndex = (thirdIndex + 1) % thirdImages.length;
+            thirdImages[thirdIndex].classList.add("active");
+
+            // Hangi dildeyse ona göre başlığı değiştir
+            thirdTitle.textContent = thirdTitles[currentLang][thirdIndex];
+
+            thirdTitle.style.opacity = "1";
+        }, 500);
+    }
+
+    setInterval(changeThirdProduct, 4000);
+}
         });
         </script>
         
