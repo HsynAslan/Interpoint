@@ -22,6 +22,85 @@
             align-items: center;
         }
     </style>
+    <style>
+/* Carousel Ana Konteyner */
+#carouselContainer {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 600px !important;
+    margin: auto !important;
+    overflow: hidden !important;
+    border-radius: 10px !important;
+}
+
+#carouselWrapper {
+    display: flex !important;
+    width: 100% !important; /* 3 resim olduğu için 3 katı genişlik */
+    transition: transform 0.5s ease-in-out !important;
+    justify-content: flex-start !important; /* Resimleri sola hizalar */
+}
+
+
+#carouselWrapper img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 90vh !important;
+    flex: 0 0 100% !important;
+    object-fit: cover !important; /* Alternatif: contain */
+}
+
+
+/* Butonlar */
+#prevButton, #nextButton {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: rgba(0, 0, 0, 0.2) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 5px;
+    padding: 10px 15px !important;
+    cursor: pointer !important;
+    font-size: 20px !important;
+    transition: background 0.3s !important;
+}
+
+#prevButton:hover, #nextButton:hover {
+    background: rgba(0, 0, 0, 0.5) !important;
+}
+
+#prevButton {
+    left: 10px !important;
+}
+
+#nextButton {
+    right: 10px !important;
+}
+
+/* Mobil İçin Butonları Küçült */
+@media (max-width: 768px) {
+    #prevButton, #nextButton {
+        padding: 8px 12px !important;
+        font-size: 16px !important;
+    }
+}
+
+
+    </style>
+    <style>
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            
+            z-index: 2000; /* Loading ekranını en üste yerleştir */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
 </head>
 <body style="overflow-y: auto !important; height: 100vh; 
 margin: 0; 
@@ -79,11 +158,22 @@ animation: bgMove 20s linear infinite alternate;">
     </header>
 
 
-  
+    <div id="carouselContainer">
+        <div id="carouselWrapper">
+            <img src="./images/13.jpg" alt=" Valve">
+            <img src="./images/14.jpg" alt=" Valve">
+            <img src="./images/15.jpg" alt=" Valve">
+            
+        </div>
     
-    <div class="carousel-container2" id="suctionImageContainer">
-        <img id="suctionValveImage" src="./images/13.jpg" alt="Suction Valve">
+        <!-- Butonlar -->
+        <button id="prevButton">&#9665;</button>
+        <button id="nextButton">&#9655;</button>
     </div>
+    
+    <!-- <div class="carousel-container2" id="suctionImageContainer">
+        <img id="suctionValveImage" src="./images/13.jpg" alt="Suction Valve">
+    </div> -->
 <!-- İçerik Alanı -->
 <section class="valve-container">
     
@@ -339,6 +429,70 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     </script>
-
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+     let index = 0;
+     const images = document.querySelectorAll("#carouselWrapper img");
+     const totalImages = images.length;
+     const carouselWrapper = document.getElementById("carouselWrapper");
+ 
+     const nextBtn = document.getElementById("nextButton");
+     const prevBtn = document.getElementById("prevButton");
+ 
+     function updateCarousel() {
+         carouselWrapper.style.transform = `translateX(-${index * 100}%)`;
+         carouselWrapper.style.marginLeft = "0px"; // Resmi sıfır noktasına çeker
+     }
+ 
+     nextBtn.addEventListener("click", function () {
+         index = (index + 1) % totalImages;
+         updateCarousel();
+         resetAutoSlide();
+     });
+ 
+     prevBtn.addEventListener("click", function () {
+         index = (index - 1 + totalImages) % totalImages;
+         updateCarousel();
+         resetAutoSlide();
+     });
+ 
+     // Otomatik geçiş (5 saniye)
+     let autoSlide = setInterval(() => {
+         index = (index + 1) % totalImages;
+         updateCarousel();
+     }, 5000);
+ 
+     // Kullanıcı butona bastığında otomatik geçişi sıfırla
+     function resetAutoSlide() {
+         clearInterval(autoSlide);
+         autoSlide = setInterval(() => {
+             index = (index + 1) % totalImages;
+             updateCarousel();
+         }, 5000);
+     }
+ 
+     // Mobil kaydırma (Touch Swipe)
+     let touchStartX = 0;
+     let touchEndX = 0;
+ 
+     carouselWrapper.addEventListener("touchstart", (event) => {
+         touchStartX = event.changedTouches[0].screenX;
+     });
+ 
+     carouselWrapper.addEventListener("touchend", (event) => {
+         touchEndX = event.changedTouches[0].screenX;
+ 
+         if (touchStartX - touchEndX > 50) {
+             index = (index + 1) % totalImages;
+         } else if (touchEndX - touchStartX > 50) {
+             index = (index - 1 + totalImages) % totalImages;
+         }
+         updateCarousel();
+         resetAutoSlide();
+     });
+ });
+ 
+     </script>
+     
 </body>
 </html>
