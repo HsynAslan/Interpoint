@@ -40,4 +40,4 @@ Interpoint-Compressor/
 2. **Dosyaları açın ve index.html dosyasını bir tarayıcıda çalıştırın.**  
 
 📌 Canlı Önizleme:  
-🔗 [https://www.interpointcompressor.com](https://interpoint-kompresor.netlify.app/) 🌍  
+🔗 [https://www.interpointcompressor.com](https://interpointcompressor.com/) 🌍  
