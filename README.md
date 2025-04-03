@@ -1,5 +1,7 @@
 🌐 Interpoint Compressor Web Sitesi
 
+Freelancer iş olarak aldığım bir firmanın backend içermeyen web sitesi projesidir.
+
 Interpoint Compressor, tamamen saf HTML, CSS, JavaScript ve Bootstrap kullanılarak geliştirilmiş, mobil uyumlu ve kullanıcı dostu bir web sitesidir.
 
 📌 Proje Özellikleri
